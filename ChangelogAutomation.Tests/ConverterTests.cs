@@ -6,7 +6,7 @@ namespace ChangelogAutomation.Tests
 {
     public class Tests
     {
-        private readonly Converter _converter = new();
+        private readonly MarkdownConverter _converter = new();
 
         private async Task ExtractionTest(string input, string expectedOutput)
         {
@@ -70,5 +70,16 @@ namespace ChangelogAutomation.Tests
 - [Baz][link]
 
 [link]: https://example.com");
+
+        [Test]
+        public Task OtherFormatOfLevel2HeaderTest() => ExtractionTest(@"
+Section 1
+---------
+Section 1 body
+
+Section 2
+---------
+Section 2 body
+", @"Section 1 body");
     }
 }

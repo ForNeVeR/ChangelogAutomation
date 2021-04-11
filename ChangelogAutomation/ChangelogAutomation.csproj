@@ -6,6 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="ConsoleAppFramework" Version="3.3.0" />
+      <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
       <PackageReference Include="Markdig" Version="0.23.0" />
     </ItemGroup>
 

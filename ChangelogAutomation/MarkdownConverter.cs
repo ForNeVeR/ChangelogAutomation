@@ -9,7 +9,7 @@ using Markdig.Syntax.Inlines;
 
 namespace ChangelogAutomation
 {
-    public class Converter
+    public class MarkdownConverter
     {
         public async Task<MarkdownText> ExtractVersionSection(MarkdownStream changelogMarkdown)
         {

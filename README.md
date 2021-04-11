@@ -3,6 +3,32 @@ ChangelogAutomation [![Status Zero][status-zero]][andivionian-status-classifier]
 
 This is a tool for processing of [changelog files][keep-a-changelog].
 
+ChangelogAutomation will extract the first second-level section from a Markdown file, which is useful for extraction of the latest changes section from a changelog.
+
+"Second-level section" is a level 2 header; any of these:
+
+```markdown
+## Level 2 header
+…some section content…
+
+Also level 2 header
+-------------------
+…some section content…
+```
+
+Usage
+-----
+
+This invocation will extract the first second-level section of the file, and write it to the output (either the standard one, or an optional output file):
+
+```console
+$ ChangelogAutomation <path-to-input-file> [options…]
+```
+
+The available options are:
+
+- `-o|-outputFilePath <output-file-path>`
+
 Documentation
 -------------
 
