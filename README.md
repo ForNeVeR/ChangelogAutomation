@@ -5,7 +5,7 @@ This is a tool for processing of [changelog files][keep-a-changelog].
 
 ChangelogAutomation will extract the first second-level section from a Markdown file, which is useful for extraction of the latest changes section from a changelog.
 
-"Second-level section" is a level 2 header; any of these:
+"Second-level section" is a section preceded by a level 2 header; any of these:
 
 ```markdown
 ## Level 2 header
