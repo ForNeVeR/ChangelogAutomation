@@ -8,6 +8,7 @@ ProjectSection(SolutionItems) = preProject
 	README.md = README.md
 	.editorconfig = .editorconfig
 	.gitignore = .gitignore
+	NuGet.Config = NuGet.Config
 EndProjectSection
 EndProject
 Global
