@@ -14,6 +14,13 @@ EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.Tests", "ChangelogAutomation.Tests\ChangelogAutomation.Tests.csproj", "{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{D3406BE3-88EB-4F79-93DE-4C8686581FE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{E756D5CD-583F-403A-BFB7-4650D0EDE896}"
+ProjectSection(SolutionItems) = preProject
+	.github\workflows\main.yml = .github\workflows\main.yml
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,5 +35,8 @@ Global
 		{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E756D5CD-583F-403A-BFB7-4650D0EDE896} = {D3406BE3-88EB-4F79-93DE-4C8686581FE9}
 	EndGlobalSection
 EndGlobal
