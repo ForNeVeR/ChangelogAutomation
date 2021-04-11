@@ -55,9 +55,11 @@ $ dotnet run --project ChangelogAutomation -- …
 Documentation
 -------------
 
+- [Changelog][changelog]
 - [License][license] (MIT)
 
 [andivionian-status-classifier]: https://github.com/ForNeVeR/andivionian-status-classifier#status-zero-
+[changelog]: ./CHANGELOG.md
 [dotnet-sdk]: https://dotnet.microsoft.com/
 [keep-a-changelog]: http://keepachangelog.com/
 [license]: ./LICENSE.md
