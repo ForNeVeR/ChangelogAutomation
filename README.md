@@ -29,12 +29,36 @@ The available options are:
 
 - `-o|-outputFilePath <output-file-path>`
 
+Development
+-----------
+
+ChangelogAutomation is a .NET 5 application, so it requires [.NET 5 SDK][dotnet-sdk] (or a later version) for build.
+
+To build the application, run the following command:
+
+```console
+$ dotnet build --configuration Release
+```
+
+To run the unit test suite, run the following command:
+
+```console
+$ dotnet test --configuration Release
+```
+
+To run the developer version, execute the following command (usual application arguments follow after `--`):
+
+```console
+$ dotnet run --project ChangelogAutomation -- …
+```
+
 Documentation
 -------------
 
 - [License][license] (MIT)
 
 [andivionian-status-classifier]: https://github.com/ForNeVeR/andivionian-status-classifier#status-zero-
+[dotnet-sdk]: https://dotnet.microsoft.com/
 [keep-a-changelog]: http://keepachangelog.com/
 [license]: ./LICENSE.md
 
