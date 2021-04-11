@@ -1,4 +1,4 @@
-ChangelogAutomation [![Status Zero][status-zero]][andivionian-status-classifier]
+ChangelogAutomation [![Status Enfer][status-enfer]][andivionian-status-classifier]
 ===================
 
 This is a tool for processing of [changelog files][keep-a-changelog].
@@ -58,10 +58,10 @@ Documentation
 - [Changelog][changelog]
 - [License][license] (MIT)
 
-[andivionian-status-classifier]: https://github.com/ForNeVeR/andivionian-status-classifier#status-zero-
+[andivionian-status-classifier]: https://github.com/ForNeVeR/andivionian-status-classifier#status-enfer-
 [changelog]: ./CHANGELOG.md
 [dotnet-sdk]: https://dotnet.microsoft.com/
 [keep-a-changelog]: http://keepachangelog.com/
 [license]: ./LICENSE.md
 
-[status-zero]: https://img.shields.io/badge/status-zero-lightgrey.svg
+[status-enfer]: https://img.shields.io/badge/status-enfer-orange.svg
