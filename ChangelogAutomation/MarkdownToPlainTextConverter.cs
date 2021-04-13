@@ -36,6 +36,13 @@ namespace ChangelogAutomation
             {
                 switch (block)
                 {
+                    case HeadingBlock heading:
+                        writer.Write('[');
+                        foreach (var item in heading.Inline)
+                            AppendInline(item);
+                        writer.WriteLine(']');
+                        break;
+
                     case CodeBlock code:
                         for (var index = 0; index < code.Lines.Count; ++index)
                             writer.WriteLine(code.Lines.Lines[index]);
@@ -44,6 +51,11 @@ namespace ChangelogAutomation
                     case ParagraphBlock paragraph:
                         foreach (var item in paragraph.Inline)
                             AppendInline(item);
+                        writer.WriteLine();
+                        break;
+
+                    case ThematicBreakBlock:
+                        writer.WriteLine("* * *");
                         break;
 
                     default:
@@ -56,6 +68,10 @@ namespace ChangelogAutomation
             {
                 switch (inline)
                 {
+                    case LineBreakInline:
+                        writer.Write(' ');
+                        break;
+
                     case EmphasisInline emphasis:
                         foreach (var item in emphasis)
                             AppendInline(item);

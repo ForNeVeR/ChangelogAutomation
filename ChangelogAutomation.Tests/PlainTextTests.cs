@@ -50,7 +50,8 @@ Content
 
 [Header]
 
-Content");
+Content
+");
 
         [Test]
         public Task FormattingTest() =>
@@ -62,15 +63,12 @@ _italic_ __bold__
 
 _Italic_
 
----
-
-~~Strike~~", @"Bold test italic bold
+---", @"Bold test italic bold
 
 Italic
 
 * * *
-
-(Strike)");
+");
 
         [Test]
         public Task LinksTest() =>
@@ -132,6 +130,7 @@ Code 2
 Code 1
 Code 2
 
-Paragraph with code 3.");
+Paragraph with code 3.
+");
     }
 }
