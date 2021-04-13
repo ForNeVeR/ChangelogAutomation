@@ -13,7 +13,12 @@ namespace ChangelogAutomation.Tests
 
         public static void AssertMarkdownEqual(string expected, MarkdownText actual)
         {
-            Assert.AreEqual(expected.NormalizeLineEndings(), actual.Text);
+            Assert.AreEqual(expected.NormalizeLineEndings(), actual.Content);
+        }
+
+        public static void AssertPlainTextEqual(string expected, PlainText actual)
+        {
+            Assert.AreEqual(expected.NormalizeLineEndings(), actual.Content);
         }
     }
 }

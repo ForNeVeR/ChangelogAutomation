@@ -6,7 +6,7 @@ namespace ChangelogAutomation.Tests
 {
     public class Tests
     {
-        private readonly MarkdownConverter _converter = new();
+        private readonly MarkdownToMarkdownConverter _converter = new();
 
         private async Task ExtractionTest(string input, string expectedOutput)
         {

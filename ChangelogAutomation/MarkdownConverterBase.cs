@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Markdig;
 using Markdig.Renderers.Normalize;
@@ -9,9 +10,9 @@ using Markdig.Syntax.Inlines;
 
 namespace ChangelogAutomation
 {
-    public class MarkdownConverter
+    public class MarkdownConverterBase
     {
-        public async Task<MarkdownText> ExtractVersionSection(MarkdownStream changelogMarkdown)
+        protected async Task<MarkdownDocument> ExtractVersionDocument(MarkdownStream changelogMarkdown)
         {
             using var reader = new StreamReader(changelogMarkdown.Stream, leaveOpen: true);
             var text = await reader.ReadToEndAsync();
@@ -22,15 +23,7 @@ namespace ChangelogAutomation
             foreach (var block in nodes)
                 sectionDocument.Add(block);
 
-            return new MarkdownText(RenderToText(sectionDocument));
-        }
-
-        private static string RenderToText(MarkdownDocument document)
-        {
-            using var writer = new StringWriter { NewLine = "\n" };
-            var renderer = new NormalizeRenderer(writer);
-            renderer.Render(document);
-            return writer.ToString();
+            return sectionDocument;
         }
 
         private static IEnumerable<Block> ExtractDocumentBlocksDestructively(MarkdownDocument document)

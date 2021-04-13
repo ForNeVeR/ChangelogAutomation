@@ -14,4 +14,16 @@ namespace ChangelogAutomation
 
         public void Dispose() => Stream.Dispose();
     }
+
+    public readonly struct PlainTextStream : IDisposable
+    {
+        public readonly Stream Stream;
+
+        public PlainTextStream(Stream stream)
+        {
+            Stream = stream;
+        }
+
+        public void Dispose() => Stream.Dispose();
+    }
 }

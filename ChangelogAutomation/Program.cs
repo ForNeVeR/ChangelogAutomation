@@ -16,7 +16,9 @@ namespace ChangelogAutomation
 
         private static void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<MarkdownConverter>();
+            services
+                .AddSingleton<MarkdownToMarkdownConverter>()
+                .AddSingleton<MarkdownToPlainTextConverter>();
         }
     }
 }
