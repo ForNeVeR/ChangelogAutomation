@@ -27,64 +27,109 @@ namespace ChangelogAutomation
                 if (!firstBlock) writer.WriteLine();
                 firstBlock = false;
 
-                AppendBlock(block);
+                AppendBlock(block, writer, renderer);
             }
 
             return writer.ToString();
+        }
 
-            void AppendBlock(Block block)
+        private static void AppendBlock(Block block, StringWriter writer, NormalizeRenderer renderer)
+        {
+            switch (block)
             {
-                switch (block)
-                {
-                    case HeadingBlock heading:
-                        writer.Write('[');
-                        foreach (var item in heading.Inline)
-                            AppendInline(item);
-                        writer.WriteLine(']');
-                        break;
+                case HeadingBlock heading:
+                    writer.Write('[');
+                    foreach (var item in heading.Inline)
+                        AppendInline(item, writer, renderer);
+                    writer.WriteLine(']');
+                    break;
 
-                    case CodeBlock code:
-                        for (var index = 0; index < code.Lines.Count; ++index)
-                            writer.WriteLine(code.Lines.Lines[index]);
-                        break;
+                case QuoteBlock quote:
+                    foreach (var item in quote)
+                    {
+                        using var nestedWriter = new StringWriter {NewLine = "\n"};
+                        var nestedRenderer = new NormalizeRenderer(nestedWriter);
+                        AppendBlock(item, nestedWriter, nestedRenderer);
 
-                    case ParagraphBlock paragraph:
-                        foreach (var item in paragraph.Inline)
-                            AppendInline(item);
-                        writer.WriteLine();
-                        break;
+                        var quotedLines = nestedWriter.ToString().Split("\n");
+                        for (var i = 0; i < quotedLines.Length; ++i)
+                        {
+                            var line = quotedLines[i];
+                            if (i == quotedLines.Length - 1 && line == "") continue;
+                            writer.WriteLine($"> {line}");
+                        }
+                    }
+                    break;
 
-                    case ThematicBreakBlock:
-                        writer.WriteLine("* * *");
-                        break;
+                case CodeBlock code:
+                    for (var index = 0; index < code.Lines.Count; ++index)
+                        writer.WriteLine(code.Lines.Lines[index]);
+                    break;
 
-                    default:
-                        renderer.Render(block);
-                        break;
-                }
+                case ParagraphBlock paragraph:
+                    foreach (var item in paragraph.Inline)
+                        AppendInline(item, writer, renderer);
+                    writer.WriteLine();
+                    break;
+
+                case ThematicBreakBlock:
+                    writer.WriteLine("* * *");
+                    break;
+
+                case ListBlock { BulletType: '1' } list:
+                    var number = 1;
+                    foreach (var item in list)
+                    {
+                        writer.Write($"{number++}. ");
+                        AppendBlock(item, writer, renderer);
+                    }
+                    break;
+
+                case ListBlock list:
+                    foreach (var item in list)
+                    {
+                        writer.Write("- ");
+                        AppendBlock(item, writer, renderer);
+                    }
+                    break;
+
+                case ContainerBlock container:
+                    foreach (var item in container)
+                        AppendBlock(item, writer, renderer);
+                    break;
+
+                default:
+                    renderer.Render(block);
+                    break;
             }
+        }
 
-            void AppendInline(Inline inline)
+        private static void AppendInline(Inline inline, StringWriter writer, NormalizeRenderer renderer)
+        {
+            switch (inline)
             {
-                switch (inline)
-                {
-                    case LineBreakInline:
-                        writer.Write(' ');
-                        break;
+                case LineBreakInline:
+                    writer.Write(' ');
+                    break;
 
-                    case EmphasisInline emphasis:
-                        foreach (var item in emphasis)
-                            AppendInline(item);
-                        break;
+                case EmphasisInline emphasis:
+                    foreach (var item in emphasis)
+                        AppendInline(item, writer, renderer);
+                    break;
 
-                    case CodeInline code:
-                        writer.Write(code.Content);
-                        break;
+                case CodeInline code:
+                    writer.Write(code.Content);
+                    break;
 
-                    default:
-                        renderer.Render(inline);
-                        break;
-                }
+                case LinkInline link:
+                    foreach (var item in link)
+                        AppendInline(item, writer, renderer);
+                    writer.Write($" ({link.Url})");
+                    break;
+
+                default:
+                    renderer.Render(inline);
+                    break;
             }
         }
     }

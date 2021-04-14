@@ -29,7 +29,8 @@ test", @"Paragraph 1
 
 Paragraph 2
 
-Paragraph text test");
+Paragraph text test
+");
 
         [Test]
         public Task HeadersTest() =>
@@ -81,21 +82,24 @@ Italic
 ## Version 0.9
 [link2]: https://example.com/2", @"Link 1 (https://example.com/1)
 
-Link 2 (https://example.com/2)");
+Link 2 (https://example.com/2)
+");
 
         [Test]
         public Task ListsTest() =>
             ConversionTest(@"# Changelog
 ## Version 1.0
-1. Item 1
+1. Item 1.
+   Item 1.1.
 1. Item 2
 
 - Item 1
-- Item 2", @"1. Item 1
+- Item 2", @"1. Item 1. Item 1.1.
 2. Item 2
 
 - Item 1
-- Item 2");
+- Item 2
+");
 
         [Test]
         public Task QuoteTest() =>
@@ -106,11 +110,21 @@ Link 2 (https://example.com/2)");
 
 > Quote **3**
 >
-> Quote 4", @"> Quote Quote 2
+> Quote 4
+
+> 1. Quoted list item 1
+> 2. Quoted list item 2
+>
+> > Sub-quote.
+> > Sub-quote cont.", @"> Quote Quote 2
 
 > Quote 3
->
-> Quote 4");
+> Quote 4
+
+> 1. Quoted list item 1
+> 2. Quoted list item 2
+> > Sub-quote. Sub-quote cont.
+");
 
         [Test]
         public Task CodeTest() =>
