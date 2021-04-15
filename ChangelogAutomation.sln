@@ -11,6 +11,7 @@ ProjectSection(SolutionItems) = preProject
 	NuGet.config = NuGet.config
 	Directory.Build.props = Directory.Build.props
 	CHANGELOG.md = CHANGELOG.md
+	MAINTAINERSHIP.md = MAINTAINERSHIP.md
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.Tests", "ChangelogAutomation.Tests\ChangelogAutomation.Tests.csproj", "{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}"
@@ -20,6 +21,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{E756D5CD-583F-403A-BFB7-4650D0EDE896}"
 ProjectSection(SolutionItems) = preProject
 	.github\workflows\main.yml = .github\workflows\main.yml
+	.github\workflows\release.yml = .github\workflows\release.yml
 EndProjectSection
 EndProject
 Global

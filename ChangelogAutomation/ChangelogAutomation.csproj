@@ -6,9 +6,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="ConsoleAppFramework" Version="3.3.0" />
-      <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
-      <PackageReference Include="Markdig" Version="0.23.0" />
+        <None Include="../CHANGELOG.md" CopyToPublishDirectory="Always"/>
+        <None Include="../LICENSE.md" CopyToPublishDirectory="Always"/>
+        <None Include="../README.md" CopyToPublishDirectory="Always"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ConsoleAppFramework" Version="3.3.0"/>
+        <PackageReference Include="JetBrains.Annotations" Version="2021.1.0"/>
+        <PackageReference Include="Markdig" Version="0.23.0"/>
     </ItemGroup>
 
 </Project>
