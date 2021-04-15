@@ -1,4 +1,4 @@
-ChangelogAutomation [![Status Enfer][status-enfer]][andivionian-status-classifier]
+ChangelogAutomation [![Status Aquana][status-aquana]][andivionian-status-classifier]
 ===================
 
 This is a tool for processing of [changelog files][keep-a-changelog].
@@ -75,7 +75,7 @@ Documentation
 - [Maintainership][maintainership]
 - [License][license] (MIT)
 
-[andivionian-status-classifier]: https://github.com/ForNeVeR/andivionian-status-classifier#status-enfer-
+[andivionian-status-classifier]: https://github.com/ForNeVeR/andivionian-status-classifier#status-aquana-
 [changelog]: ./CHANGELOG.md
 [deps.linux]: https://docs.microsoft.com/en-us/dotnet/core/install/linux
 [deps.macos]: https://docs.microsoft.com/en-us/dotnet/core/install/macos#dependencies
@@ -86,4 +86,4 @@ Documentation
 [maintainership]: ./MAINTAINERSHIP.md
 [releases]: https://github.com/ForNeVeR/ChangelogAutomation/releases
 
-[status-enfer]: https://img.shields.io/badge/status-enfer-orange.svg
+[status-aquana]: https://img.shields.io/badge/status-aquana-yellowgreen.svg
