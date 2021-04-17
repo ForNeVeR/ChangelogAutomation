@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using ChangelogAutomation.Core;
 using ConsoleAppFramework;
 using JetBrains.Annotations;
 

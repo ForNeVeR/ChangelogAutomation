@@ -1,12 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Text;
+﻿using System.IO;
 using System.Threading.Tasks;
-using Markdig;
 using Markdig.Renderers.Normalize;
 using Markdig.Syntax;
 
-namespace ChangelogAutomation
+namespace ChangelogAutomation.Core
 {
     public class MarkdownToMarkdownConverter : MarkdownConverterBase
     {

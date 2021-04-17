@@ -3,6 +3,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,8 +14,10 @@
 
     <ItemGroup>
         <PackageReference Include="ConsoleAppFramework" Version="3.3.0"/>
-        <PackageReference Include="JetBrains.Annotations" Version="2021.1.0"/>
-        <PackageReference Include="Markdig" Version="0.23.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj"/>
     </ItemGroup>
 
 </Project>

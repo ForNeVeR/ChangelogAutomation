@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace ChangelogAutomation
+namespace ChangelogAutomation.Core
 {
     public readonly struct MarkdownStream : IDisposable
     {

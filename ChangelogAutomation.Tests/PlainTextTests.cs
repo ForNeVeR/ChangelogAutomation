@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using ChangelogAutomation.Core;
 using NUnit.Framework;
 using static ChangelogAutomation.Tests.TestFramework;
 

@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
@@ -13,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ChangelogAutomation\ChangelogAutomation.csproj" />
+      <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj" />
     </ItemGroup>
 
 </Project>

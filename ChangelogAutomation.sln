@@ -24,6 +24,8 @@ ProjectSection(SolutionItems) = preProject
 	.github\workflows\release.yml = .github\workflows\release.yml
 EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.Core", "ChangelogAutomation.Core\ChangelogAutomation.Core.csproj", "{7E6BB5C3-1362-4D99-BCA9-F48746500C8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E6BB5C3-1362-4D99-BCA9-F48746500C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E6BB5C3-1362-4D99-BCA9-F48746500C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E6BB5C3-1362-4D99-BCA9-F48746500C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E6BB5C3-1362-4D99-BCA9-F48746500C8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E756D5CD-583F-403A-BFB7-4650D0EDE896} = {D3406BE3-88EB-4F79-93DE-4C8686581FE9}
