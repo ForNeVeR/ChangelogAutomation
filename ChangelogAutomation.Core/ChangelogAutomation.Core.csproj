@@ -4,10 +4,11 @@
         <TargetFramework>net5.0</TargetFramework>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
-        <PackageReference Include="Markdig" Version="0.23.0" />
+        <PackageReference Include="Markdig" Version="0.23.0" PrivateAssets="All" />
+        <PackageReference Include="NuGetizer" Version="0.6.2" />
     </ItemGroup>
 
 </Project>
