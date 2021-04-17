@@ -42,8 +42,8 @@ $ ChangelogAutomation <path-to-input-file> [options…]
 
 The available options are:
 
-- `(-o|-outputFilePath) <output-file-path>`
-- `(-t|-contentType) (Markdown|PlainText)`: output content type
+- `(-o|--outputFilePath) <output-file-path>` (if not specified, then will print to stdout)
+- `(-t|--contentType) (Markdown|PlainText)`: output content type
 
 Development
 -----------

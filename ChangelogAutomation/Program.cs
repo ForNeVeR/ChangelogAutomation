@@ -11,7 +11,10 @@ namespace ChangelogAutomation
         {
             await Host.CreateDefaultBuilder()
                 .ConfigureServices(ConfigureServices)
-                .RunConsoleAppFrameworkAsync<Application>(args);
+                .RunConsoleAppFrameworkAsync<Application>(args, new ConsoleAppOptions
+                {
+                    StrictOption = true
+                });
         }
 
         private static void ConfigureServices(IServiceCollection services)

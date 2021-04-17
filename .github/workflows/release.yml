@@ -42,7 +42,7 @@ jobs:
 
       - name: Read changelog
         id: changelog
-        run: dotnet run --project ChangelogAutomation -- ./CHANGELOG.md -outputFilePath ./release-data.md
+        run: dotnet run --project ChangelogAutomation -- ./CHANGELOG.md --outputFilePath ./release-data.md
 
       - name: Create release
         id: release
