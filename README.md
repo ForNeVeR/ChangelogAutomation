@@ -1,9 +1,9 @@
 ChangelogAutomation [![Status Aquana][status-aquana]][andivionian-status-classifier]
 ===================
 
-This is a tool for processing of [changelog files][keep-a-changelog].
+When preparing a software release, a common task is to parse [the changelog file][keep-a-changelog], and extract the latest changes section from it. For certain purposes, Markdown format is acceptable, but in some cases a text format is also useful.
 
-ChangelogAutomation will extract the first second-level section from a Markdown file, which is useful for extraction of the latest changes section from a changelog.
+ChangelogAutomation is a tool for this exact purpose. It will extract the first second-level section from a Markdown file either in a text or in a Markdown format, and will print it to a file or to its stdout.
 
 "Second-level section" is a section preceded by a level 2 header; any of these:
 
