@@ -6,9 +6,20 @@
         <PackDependencies>false</PackDependencies>
         <PackFolder>tools</PackFolder>
     </PropertyGroup>
+    
+    <PropertyGroup>
+        <Title>ChangelogAutomation.MSBuild</Title>
+        <Description>MSBuild task and target that will automatically extract the latest version release notes from the CHANGELOG.md file and add them to the NuGet package description.</Description>
+        <Authors>ForNeVeR</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/ForNeVeR/ChangelogAutomation</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/ForNeVeR/ChangelogAutomation.git</RepositoryUrl>
+        <PackageTags>changelog; msbuild</PackageTags>
+    </PropertyGroup>
 
     <Import Project="..\DownloadMarkdigLicense.props" />
-    <Target Name="SetPackageReleaseNotesExternal" AfterTargets="GetPackageMetadata" BeforeTargets="GetPackageTargetPath" Returns="@(PackageMetadata)">
+    <Target Name="SetPackageReleaseNotesExternal"
+            AfterTargets="GetPackageMetadata" BeforeTargets="GetPackageTargetPath">
         <!-- 
             Since this is the project that's supposed to pack the NuGet package, we cannot rely on itself. So, just use
              the console tool we have compiled in the same solution.
@@ -24,6 +35,7 @@
             </PackageMetadata>
         </ItemGroup>
     </Target>
+    
     <ItemGroup>
         <Content Include="..\CHANGELOG.md" Link="docs\CHANGELOG.md"
                  PackagePath="docs\ChangelogAutomation.CHANGELOG.md" />
