@@ -1,5 +1,5 @@
-﻿<Project>
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
     <ItemGroup>
-        <Content Include="Run-Test.ps1"/>
+        <Content Include="Run-Test.ps1" />
     </ItemGroup>
 </Project>
