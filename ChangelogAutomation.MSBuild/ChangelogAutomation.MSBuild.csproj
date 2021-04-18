@@ -26,7 +26,8 @@
         -->
         <Message Importance="high" Text="Extracting release notes from ../CHANGELOG.md" />
         <Exec Command="dotnet run --project ../ChangelogAutomation/ChangelogAutomation.csproj -- ../CHANGELOG.md --contentType PlainText"
-              ConsoleToMSBuild="true">
+              ConsoleToMSBuild="true"
+              StandardOutputImportance="Low">
             <Output TaskParameter="ConsoleOutput" ItemName="PackageReleaseNotes"/>
         </Exec>
         <ItemGroup>
