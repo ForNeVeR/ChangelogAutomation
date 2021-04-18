@@ -6,18 +6,21 @@
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
+    <Import Project="..\DownloadMarkdigLicense.props" />
+    <Target Name="Publish" DependsOnTargets="DownloadMarkdigLicense" />
     <ItemGroup>
-        <None Include="../CHANGELOG.md" CopyToPublishDirectory="Always"/>
-        <None Include="../LICENSE.md" CopyToPublishDirectory="Always"/>
-        <None Include="../README.md" CopyToPublishDirectory="Always"/>
+        <None Include="..\CHANGELOG.md" Link="docs\CHANGELOG.md" CopyToPublishDirectory="Always" />
+        <None Include="..\LICENSE.md" Link="docs\LICENSE.md" CopyToPublishDirectory="Always" />
+        <None Include="..\README.md" Link="docs\README.md" CopyToPublishDirectory="Always" />
+        <None Include="$(MarkdigLicenseFilePath)" Link="docs/$(MarkdigLicenseFileName)" CopyToPublishDirectory="Always" LinkBase="docs" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="ConsoleAppFramework" Version="3.3.0"/>
+        <PackageReference Include="ConsoleAppFramework" Version="3.3.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj"/>
+        <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj" />
     </ItemGroup>
 
 </Project>

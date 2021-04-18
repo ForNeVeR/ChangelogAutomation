@@ -94,6 +94,7 @@ Documentation
 - [Changelog][changelog]
 - [Maintainership][maintainership]
 - [License][license] (MIT)
+- Markdig library license (which is bundled into the ChangelogAutomation distributions) should be in the same directory as this file (`README.md`) with the name `license_Markdig.txt`.
 
 [andivionian-status-classifier]: https://github.com/ForNeVeR/andivionian-status-classifier#status-aquana-
 [changelog]: ./CHANGELOG.md

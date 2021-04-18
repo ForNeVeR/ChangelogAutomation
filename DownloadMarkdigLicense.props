@@ -1,0 +1,12 @@
+﻿<Project>
+    <PropertyGroup>
+        <MarkdigLicenseFileName>license_Markdig.txt</MarkdigLicenseFileName>
+        <MarkdigLicenseFilePath>$(BaseIntermediateOutputPath)$(MarkdigLicenseFileName)</MarkdigLicenseFilePath>
+    </PropertyGroup>
+    <Target Name="DownloadMarkdigLicense" BeforeTargets="Build">
+        <DownloadFile SourceUrl="https://raw.githubusercontent.com/xoofx/markdig/0a0040450fd4f774dacc71bcaf0ed1651a792cea/license.txt"
+                      DestinationFolder="$(BaseIntermediateOutputPath)"
+                      DestinationFileName="$(MarkdigLicenseFileName)"
+                      SkipUnchangedFiles="true" />
+    </Target>
+</Project>

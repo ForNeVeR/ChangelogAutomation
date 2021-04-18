@@ -7,7 +7,18 @@
         <PackFolder>tools</PackFolder>
     </PropertyGroup>
 
+    <Import Project="..\DownloadMarkdigLicense.props" />
+    <Target Name="Publish" DependsOnTargets="DownloadMarkdigLicense" />
     <ItemGroup>
+        <Content Include="..\CHANGELOG.md" Link="docs\CHANGELOG.md"
+                 PackagePath="docs\ChangelogAutomation.CHANGELOG.md" />
+        <Content Include="..\LICENSE.md" Link="docs\LICENSE.md"
+                 PackagePath="docs\ChangelogAutomation.LICENSE.md" />
+        <Content Include="..\README.md" Link="docs\README.md"
+                 PackagePath="docs\README.md" />
+        <Content Include="$(MarkdigLicenseFilePath)" Link="docs\$(MarkdigLicenseFileName)"
+                 PackagePath="docs/$(MarkdigLicenseFileName)" />
+
         <Content Include="ChangelogAutomation.MSBuild.props" PackagePath="build\ChangelogAutomation.MSBuild.props" />
         <Content Include="ChangelogAutomation.MSBuild.targets" PackagePath="build\ChangelogAutomation.MSBuild.targets" />
         <PackageFile Include="lib\netcoreapp3.1\Markdig.dll" PackagePath="tools\Markdig.dll" PackageReference="Markdig" Visible="false" />
