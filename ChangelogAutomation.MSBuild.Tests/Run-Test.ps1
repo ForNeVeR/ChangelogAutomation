@@ -3,8 +3,9 @@
 
     $SolutionRootPath = "$PSScriptRoot/..",
     $TemporaryDataPath = "$PSScriptRoot/obj",
-    $NuGetCachePath = "$TemporaryDataPath/nuget-cache",
     $PackageSourcePath = "$TemporaryDataPath/nuget",
+    $NuGetCachePath = "$TemporaryDataPath/nuget.cache",
+    $ExtractedNugetPath = "$TemporaryDataPath/nuget.exploded",
     $TestProjectName = 'TestProject',
     $dotnet = 'dotnet'
 )
@@ -30,30 +31,56 @@ try {
 
     $testProjectPath = "$TemporaryDataPath/$TestProjectName"
     $testProjectCsprojPath = "$testProjectPath/$TestProjectName.csproj"
-    $testProjectChangelogPath = "$testProjectPath/CHANGELOG.md"
+    $testProjectChangelogPath = "$testProjectPath/../CHANGELOG.md"
     $testProjectNugetPath = "$testProjectPath/nuget"
 
     Write-Output "Creating a new test project in $testProjectPath"
-    & $dotnet new console --output $testProjectPath
+    & $dotnet new console --output $testProjectPath --force
     if (!$?) { throw "dotnet new returned $LASTEXITCODE" }
 
     Write-Output 'Adding a NuGet package'
     & $dotnet add $testProjectCsprojPath package --source $PackageSourcePath ChangelogAutomation.MSBuild
     if (!$?) { throw "dotnet add returned $LASTEXITCODE" }
 
+    Write-Output "Writing $testProjectChangelogPath"
     @'
-    # Changelog
+# Changelog
 
-    ## Version 1.0
-    - Test line
-    - Another test line
+## Version 1.0
+- **Test line**
+- Another [test][link] line
 
-    [link]: unrelated test link
+[unrelated]: https://example.com/unrelated
+[link]: https://example.com/
 '@ | Out-File $testProjectChangelogPath -Encoding utf8
 
     Write-Output "Packing $TestProjectName"
-    & $dotnet pack --no-restore --configuration Release --output $testProjectNugetPath $testProjectCsprojPath
+    & $dotnet pack --no-restore `
+        --configuration Release `
+        --output $testProjectNugetPath `
+        $testProjectCsprojPath
     if (!$?) { throw "dotnet pack returned $LASTEXITCODE" }
+
+    $nupkgFile = Get-Item "$testProjectNugetPath/*.nupkg"
+    Write-Output "Extracting $nupkgFile to $ExtractedNugetPath"
+    Expand-Archive -Path $nupkgFile -DestinationPath $ExtractedNugetPath -Force -ErrorAction 'Stop'
+
+    $nuspecFile = Get-Item "$ExtractedNugetPath/$TestProjectName.nuspec"
+    Write-Output "Extracting the changelog from $nuspecFile"
+    [xml] $xmlContent = Get-Content $nuspecFile
+    $actualReleaseNotes = $xmlContent.package.metadata.releaseNotes.Replace("`r`n", "`n")
+
+    $expectedReleaseNotes = @'
+- Test line
+- Another test (https://example.com/) line
+'@.Replace("`r`n", "`n")
+    if ($expectedReleaseNotes -ne $actualReleaseNotes) {
+        throw "Release notes not equal to expected. Expected: @'$expectedReleaseNotes`n'@`n`nActual: @'$actualReleaseNotes'@"
+    } else {
+        Write-Output 'Changelog is equal to expected'
+    }
+
+
 } finally {
     $env:NUGET_PACKAGES = $previousNuGetPackages
 }
