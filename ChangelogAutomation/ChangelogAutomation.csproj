@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <Import Project="..\DownloadMarkdigLicense.props" />
-    <Target Name="Publish" DependsOnTargets="DownloadMarkdigLicense" />
     <ItemGroup>
         <None Include="..\CHANGELOG.md" Link="docs\CHANGELOG.md" CopyToPublishDirectory="Always" />
         <None Include="..\LICENSE.md" Link="docs\LICENSE.md" CopyToPublishDirectory="Always" />
