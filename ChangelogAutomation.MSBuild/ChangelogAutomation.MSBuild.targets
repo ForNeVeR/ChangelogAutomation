@@ -4,7 +4,8 @@
         <PropertyGroup>
             <ChangelogFilePath Condition="'$(ChangelogFilePath)' == ''">../CHANGELOG.md</ChangelogFilePath>
         </PropertyGroup>
-        <CollectLastChangelogSection ChangelogFilePath="$(ChangelogFilePath)">
+        <CollectLastChangelogSection ChangelogFilePath="$(ChangelogFilePath)"
+                                     OutputType="$(ReleaseNotesOutputType)">
             <Output TaskParameter="ChangelogSectionContent" PropertyName="PackageReleaseNotes"/>
         </CollectLastChangelogSection>
     </Target>

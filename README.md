@@ -34,6 +34,8 @@ Installation
 Usage
 -----
 
+### Console tool
+
 This invocation will extract the first second-level section of the file, and write it to the output (either the standard one, or an optional output file):
 
 ```console
@@ -44,6 +46,18 @@ The available options are:
 
 - `(-o|--outputFilePath) <output-file-path>` (if not specified, then will print to stdout)
 - `(-t|--contentType) (Markdown|PlainText)`: output content type
+
+### MSBuild
+
+There's an MSBuild task package available. The package will automatically integrate with `dotnet pack`, and extract the latest changelog entry into the `<releaseNotes>` element in the `.nuspec` file.
+
+Just add a package reference to `ChangelogAutomation.MSBuild` package, and the task will automatically be enabled. It will set the `PackageReleaseNotes` property to the latest version section contents (this is a standard property, will then be used by NuGet integration automatically).
+
+There are MSBuild properties to tune its behavior:
+
+- `DisableChangelogAutomationTask`: set this to `true` to disable the automatic task invocation (if you want to register it with the custom parameters).
+- `ChangelogFilePath`: point it to the `CHANGELOG.md` file. By default, will be set to `../CHANGELOG.md` (resolved relatively to the project file location).
+- `ReleaseNotesOutputType`: either `Markdown` or `PlainText`. If not set, defaults to `PlainText`.
 
 Development
 -----------
