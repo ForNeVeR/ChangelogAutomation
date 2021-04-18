@@ -1,0 +1,5 @@
+﻿<Project>
+    <ItemGroup>
+        <Content Include="Run-Test.ps1"/>
+    </ItemGroup>
+</Project>

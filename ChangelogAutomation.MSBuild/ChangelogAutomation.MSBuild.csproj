@@ -8,18 +8,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="ChangelogAutomation.MSBuild.props" PackagePath="build\ChangelogAutomation.MSBuild.props"/>
-        <Content Include="ChangelogAutomation.MSBuild.targets" PackagePath="build\ChangelogAutomation.MSBuild.targets"/>
-        <PackageFile Include="lib\netcoreapp3.1\Markdig.dll" PackagePath="tools\Markdig.dll" PackageReference="Markdig"/>
+        <Content Include="ChangelogAutomation.MSBuild.props" PackagePath="build\ChangelogAutomation.MSBuild.props" />
+        <Content Include="ChangelogAutomation.MSBuild.targets" PackagePath="build\ChangelogAutomation.MSBuild.targets" />
+        <PackageFile Include="lib\netcoreapp3.1\Markdig.dll" PackagePath="tools\Markdig.dll" PackageReference="Markdig" Visible="false" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Build.Framework" Version="16.9.0"/>
-        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.9.0"/>
+        <PackageReference Include="Microsoft.Build.Framework" Version="16.9.0" />
+        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.9.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj" PrivateAssets="All"/>
+        <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj" PrivateAssets="All" />
         <PackageReference Include="Markdig" Version="0.23.0" GeneratePathProperty="true" />
         <PackageReference Include="NuGetizer" Version="0.6.2" />
     </ItemGroup>

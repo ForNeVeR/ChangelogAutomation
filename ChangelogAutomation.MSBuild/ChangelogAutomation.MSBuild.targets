@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <Target Name="SetPackageReleaseNotes" BeforeTargets="GenerateNuspec"
-            Condition="'$(DisableChangelogAutomationTask)' != 'true">
+            Condition="'$(DisableChangelogAutomationTask)' != 'true'">
         <PropertyGroup>
             <ChangelogFilePath Condition="'$(ChangelogFilePath)' == ''">../CHANGELOG.md</ChangelogFilePath>
         </PropertyGroup>

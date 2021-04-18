@@ -8,7 +8,7 @@ using Microsoft.Build.Utilities;
 namespace ChangelogAutomation.MSBuild
 {
     [UsedImplicitly]
-    public class CollectLastChangelogSectionTask : Task
+    public class CollectLastChangelogSection : Task
     {
         [Required, PublicAPI]
         public string ChangelogFilePath { get; set; } = null!;
@@ -23,7 +23,7 @@ namespace ChangelogAutomation.MSBuild
         {
             if (!File.Exists(ChangelogFilePath))
             {
-                Log.LogWarning($"Could not found changelog file {ChangelogFilePath}");
+                Log.LogError($"Could not found changelog file {ChangelogFilePath}");
                 return false;
             }
 

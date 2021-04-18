@@ -38,5 +38,10 @@ jobs:
 
       - name: Build
         run: dotnet build --configuration Release
+      - name: Pack
+        run: dotnet pack --configuration Release
       - name: Test
         run: dotnet test --configuration Release
+      - name: MSBuild task integration test
+        shell: pwsh
+        run: ./ChangelogAutomation.MSBuild.Tests/Run-Test.ps1

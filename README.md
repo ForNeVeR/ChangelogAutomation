@@ -62,6 +62,12 @@ To run the unit test suite, run the following command:
 $ dotnet test --configuration Release
 ```
 
+To run the integration test for the MSBuild task package, run the following command:
+
+```console
+$ pwsh ./ChangelogAutomation.MSBuild.Tests/Run-Test.ps1
+```
+
 To run the developer version, execute the following command (usual application arguments follow after `--`):
 
 ```console

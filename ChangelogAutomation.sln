@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.Core", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.MSBuild", "ChangelogAutomation.MSBuild\ChangelogAutomation.MSBuild.csproj", "{E92C594F-1B03-4AFB-8419-626F3AFCAFA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.MSBuild.Tests", "ChangelogAutomation.MSBuild.Tests\ChangelogAutomation.MSBuild.Tests.proj", "{D8504D94-4960-4288-8052-76054DF8FCBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
