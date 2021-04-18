@@ -91,6 +91,10 @@ namespace ChangelogAutomation.Core
                     }
                     break;
 
+                case LinkReferenceDefinitionGroup _:
+                    // Handled automatically when processing links; no output is expected.
+                    break;
+
                 case ContainerBlock container:
                     foreach (var item in container)
                         AppendBlock(item, writer, renderer);

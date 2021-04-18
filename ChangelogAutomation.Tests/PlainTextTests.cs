@@ -147,5 +147,19 @@ Code 2
 
 Paragraph with code 3.
 ");
+
+        [Test]
+        public Task LinkBlockTest() =>
+            ConversionTest(@"# Changelog
+
+## Version 1.0
+- **Test line**
+- Another [test][link] line
+
+[unrelated]: https://example.com/unrelated
+[link]: https://example.com/", @"- Test line
+- Another test (https://example.com/) line
+
+");
     }
 }
