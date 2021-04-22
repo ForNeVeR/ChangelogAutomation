@@ -10,7 +10,7 @@ Set-StrictMode -Version Latest
 
 function normalize($linesOrString) {
     $lines = $linesOrString.Split("`n")
-    $lines -join "`n"
+    ($lines -join "`n").TrimEnd()
 }
 
 $actualReleaseNotes = normalize(& "$PSScriptRoot/Extract-ReleaseNotes.ps1" -NupkgPath $NupkgPath)
@@ -24,4 +24,6 @@ $expectedReleaseNotes = normalize(
 
 if ($expectedReleaseNotes -ne $actualReleaseNotes) {
     throw "Release notes not equal to expected. Expected: @'`n$expectedReleaseNotes`n'@`n`nActual: @'`n$actualReleaseNotes`n'@"
+} else {
+    Write-Output 'Release notes are equal to expected'
 }

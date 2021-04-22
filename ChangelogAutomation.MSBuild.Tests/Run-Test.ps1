@@ -70,7 +70,7 @@ try {
     if ($expectedReleaseNotes -ne $actualReleaseNotes) {
         throw "Release notes not equal to expected. Expected: @'`n$expectedReleaseNotes`n'@`n`nActual: @'`n$actualReleaseNotes`n'@"
     } else {
-        Write-Output 'Changelog is equal to expected'
+        Write-Output 'Release notes are equal to expected'
     }
 
 
