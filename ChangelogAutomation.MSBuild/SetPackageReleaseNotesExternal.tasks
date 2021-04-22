@@ -1,0 +1,28 @@
+﻿<Project>
+    <UsingTask TaskName="SetPackageReleaseNotesExternal"
+               TaskFactory="RoslynCodeTaskFactory"
+               AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+        <ParameterGroup>
+            <ChangelogFile Required="true" ParameterType="System.String" />
+            <PlainText Output="true" ParameterType="System.String" />
+        </ParameterGroup>
+        <Task>
+            <Using Namespace="System.Diagnostics"/>
+            <Code Type="Fragment" Language="cs">
+                var psi = new ProcessStartInfo
+                {
+                    FileName = "dotnet",
+                    Arguments = $"run --project ../ChangelogAutomation/ChangelogAutomation.csproj -- {ChangelogFile} --contentType PlainText",
+                    RedirectStandardOutput = true
+                };
+                var process = Process.Start(psi);
+                PlainText = process.StandardOutput.ReadToEnd();
+                if (process.ExitCode != 0)
+                {
+                    Log.LogError($"Process returned exit code {process.ExitCode}");
+                    return false;
+                }
+            </Code>
+        </Task>
+    </UsingTask>
+</Project>

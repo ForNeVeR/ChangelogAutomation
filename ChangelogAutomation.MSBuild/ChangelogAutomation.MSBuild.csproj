@@ -18,21 +18,16 @@
     </PropertyGroup>
 
     <Import Project="..\DownloadMarkdigLicense.targets" />
+    <Import Project="SetPackageReleaseNotesExternal.tasks" />
     <Target Name="SetPackageReleaseNotesExternal"
             AfterTargets="GetPackageMetadata" BeforeTargets="GetPackageTargetPath">
-        <!-- 
-            Since this is the project that's supposed to pack the NuGet package, we cannot rely on itself. So, just use
-             the console tool we have compiled in the same solution.
-        -->
         <Message Importance="high" Text="Extracting release notes from ../CHANGELOG.md" />
-        <Exec Command="dotnet run --project ../ChangelogAutomation/ChangelogAutomation.csproj -- ../CHANGELOG.md --contentType PlainText"
-              ConsoleToMSBuild="true"
-              StandardOutputImportance="Low">
-            <Output TaskParameter="ConsoleOutput" ItemName="PackageReleaseNotes"/>
-        </Exec>
+        <SetPackageReleaseNotesExternal ChangelogFile="..\CHANGELOG.md">
+            <Output TaskParameter="PlainText" PropertyName="PackageReleaseNotes" />
+        </SetPackageReleaseNotesExternal>
         <ItemGroup>
             <PackageMetadata Update="$(PackageId)">
-                <ReleaseNotes>@(PackageReleaseNotes, '%0d')</ReleaseNotes>
+                <ReleaseNotes>$(PackageReleaseNotes)</ReleaseNotes>
             </PackageMetadata>
         </ItemGroup>
     </Target>

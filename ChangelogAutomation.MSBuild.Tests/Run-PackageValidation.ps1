@@ -10,7 +10,7 @@ Set-StrictMode -Version Latest
 
 function normalize($linesOrString) {
     $lines = $linesOrString.Split("`n")
-    ($lines | Where-Object { $_ }) -join "`n"
+    $lines -join "`n"
 }
 
 $actualReleaseNotes = normalize(& "$PSScriptRoot/Extract-ReleaseNotes.ps1" -NupkgPath $NupkgPath)
