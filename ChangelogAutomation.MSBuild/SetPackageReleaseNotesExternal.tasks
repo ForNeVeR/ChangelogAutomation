@@ -15,8 +15,9 @@
                     Arguments = $"run --project ../ChangelogAutomation/ChangelogAutomation.csproj -- {ChangelogFile} --contentType PlainText",
                     RedirectStandardOutput = true
                 };
-                var process = Process.Start(psi);
+                using var process = Process.Start(psi);
                 PlainText = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
                 if (process.ExitCode != 0)
                 {
                     Log.LogError($"Process returned exit code {process.ExitCode}");
