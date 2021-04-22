@@ -12,7 +12,7 @@ ProjectSection(SolutionItems) = preProject
 	Directory.Build.props = Directory.Build.props
 	CHANGELOG.md = CHANGELOG.md
 	MAINTAINERSHIP.md = MAINTAINERSHIP.md
-	DownloadMarkdigLicense.props = DownloadMarkdigLicense.props
+	DownloadMarkdigLicense.targets = DownloadMarkdigLicense.targets
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.Tests", "ChangelogAutomation.Tests\ChangelogAutomation.Tests.csproj", "{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}"

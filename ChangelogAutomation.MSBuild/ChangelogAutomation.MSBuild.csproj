@@ -17,7 +17,7 @@
         <PackageTags>changelog; msbuild</PackageTags>
     </PropertyGroup>
 
-    <Import Project="..\DownloadMarkdigLicense.props" />
+    <Import Project="..\DownloadMarkdigLicense.targets" />
     <Target Name="SetPackageReleaseNotesExternal"
             AfterTargets="GetPackageMetadata" BeforeTargets="GetPackageTargetPath">
         <!-- 

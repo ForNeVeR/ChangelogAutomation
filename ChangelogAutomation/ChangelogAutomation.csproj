@@ -6,7 +6,7 @@
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
-    <Import Project="..\DownloadMarkdigLicense.props" />
+    <Import Project="..\DownloadMarkdigLicense.targets" />
     <ItemGroup>
         <None Include="..\CHANGELOG.md" Link="docs\CHANGELOG.md" CopyToPublishDirectory="Always" />
         <None Include="..\LICENSE.md" Link="docs\LICENSE.md" CopyToPublishDirectory="Always" />
