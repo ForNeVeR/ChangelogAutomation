@@ -62,20 +62,13 @@ try {
     if (!$?) { throw "dotnet pack returned $LASTEXITCODE" }
 
     $nupkgFile = Get-Item "$testProjectNugetPath/*.nupkg"
-    Write-Output "Extracting $nupkgFile to $ExtractedNugetPath"
-    Expand-Archive -Path $nupkgFile -DestinationPath $ExtractedNugetPath -Force -ErrorAction 'Stop'
-
-    $nuspecFile = Get-Item "$ExtractedNugetPath/$TestProjectName.nuspec"
-    Write-Output "Extracting the changelog from $nuspecFile"
-    [xml] $xmlContent = Get-Content $nuspecFile
-    $actualReleaseNotes = $xmlContent.package.metadata.releaseNotes.Replace("`r`n", "`n")
-
+    $actualReleaseNotes = & "$PSScriptRoot/Extract-ReleaseNotes.ps1" -NupkgPath $nupkgFile
     $expectedReleaseNotes = @'
 - Test line
 - Another test (https://example.com/) line
 '@.Replace("`r`n", "`n")
     if ($expectedReleaseNotes -ne $actualReleaseNotes) {
-        throw "Release notes not equal to expected. Expected: @'$expectedReleaseNotes`n'@`n`nActual: @'$actualReleaseNotes'@"
+        throw "Release notes not equal to expected. Expected: @'`n$expectedReleaseNotes`n'@`n`nActual: @'`n$actualReleaseNotes`n'@"
     } else {
         Write-Output 'Changelog is equal to expected'
     }
