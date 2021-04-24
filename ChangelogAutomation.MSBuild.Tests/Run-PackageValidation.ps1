@@ -21,7 +21,6 @@ $expectedReleaseNotes = normalize(
         --contentType PlainText
 )
 
-
 if ($expectedReleaseNotes -ne $actualReleaseNotes) {
     throw "Release notes not equal to expected. Expected: @'`n$expectedReleaseNotes`n'@`n`nActual: @'`n$actualReleaseNotes`n'@"
 } else {

@@ -72,8 +72,6 @@ try {
     } else {
         Write-Output 'Release notes are equal to expected'
     }
-
-
 } finally {
     $env:NUGET_PACKAGES = $previousNuGetPackages
 }
