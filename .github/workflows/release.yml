@@ -40,6 +40,9 @@ jobs:
           dotnet publish ChangelogAutomation --runtime win-x64 --configuration Release --output ./publish.win-x64 -p:PublishTrimmed=true -p:PublishSingleFile=true
           && Compress-Archive ./publish.win-x64/* ./ChangelogAutomation-v${{ steps.version.outputs.version }}.win-x64.zip
 
+      - name: Prepare a NuGet package
+        run: dotnet pack --configuration Release -p:Version=${{ steps.version.outputs.version }}
+
       - name: Read changelog
         id: changelog
         run: dotnet run --project ChangelogAutomation -- ./CHANGELOG.md --outputFilePath ./release-data.md
@@ -53,6 +56,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: ChangelogAutomation v${{ steps.version.outputs.version }}
           body_path: ./release-data.md
+
       - name: 'Upload distribution: Linux'
         uses: actions/upload-release-asset@v1
         env:
@@ -80,3 +84,16 @@ jobs:
           asset_name: ChangelogAutomation-v${{ steps.version.outputs.version }}.win-x64.zip
           asset_path: ./ChangelogAutomation-v${{ steps.version.outputs.version }}.win-x64.zip
           asset_content_type: application/zip
+
+      - name: Upload .nupkg file
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_name: ChangelogAutomation.MSBuild.${{ steps.version.outputs.version }}.nupkg
+          asset_path: ./ChangelogAutomation.MSBuild/bin/Release/ChangelogAutomation.MSBuild.${{ steps.version.outputs.version }}.nupkg
+          asset_content_type: application/zip
+
+      - name: Push a package to NuGet
+        run: dotnet nuget push ./ChangelogAutomation.MSBuild/bin/Release/ChangelogAutomation.MSBuild.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_TOKEN }}
