@@ -34,6 +34,10 @@ Installation
 Usage
 -----
 
+### GitHub Actions
+
+There's a separate repository with GitHub Action integration of this tool. Check out [the documentation][github-actions].
+
 ### Console tool
 
 This invocation will extract the first second-level section of the file, and write it to the output (either the standard one, or an optional output file):
@@ -113,6 +117,7 @@ Documentation
 [maintainership]: ./MAINTAINERSHIP.md
 [nuget.package]: https://www.nuget.org/packages/ChangelogAutomation.MSBuild/
 [releases]: https://github.com/ForNeVeR/ChangelogAutomation/releases
+[github.actions]: https://github.com/marketplace/actions/changelogautomation-action
 
 [nuget.badge]: https://img.shields.io/nuget/v/ChangelogAutomation.MSBuild
 [status-aquana]: https://img.shields.io/badge/status-aquana-yellowgreen.svg
