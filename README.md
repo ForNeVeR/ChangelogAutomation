@@ -1,4 +1,4 @@
-ChangelogAutomation [![Status Aquana][status-aquana]][andivionian-status-classifier]
+ChangelogAutomation [![NuGet Package][nuget.badge]][nuget.package] [![Status Aquana][status-aquana]][andivionian-status-classifier]
 ===================
 
 When preparing a software release, a common task is to parse [the changelog file][keep-a-changelog], and extract the latest changes section from it. For certain purposes, Markdown format is acceptable, but in some cases a text format is also useful.
@@ -111,6 +111,8 @@ Documentation
 [keep-a-changelog]: http://keepachangelog.com/
 [license]: ./LICENSE.md
 [maintainership]: ./MAINTAINERSHIP.md
+[nuget.package]: https://www.nuget.org/packages/ChangelogAutomation.MSBuild/
 [releases]: https://github.com/ForNeVeR/ChangelogAutomation/releases
 
+[nuget.badge]: https://img.shields.io/nuget/v/ChangelogAutomation.MSBuild
 [status-aquana]: https://img.shields.io/badge/status-aquana-yellowgreen.svg
