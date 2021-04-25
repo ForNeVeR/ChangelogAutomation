@@ -19,7 +19,7 @@ Also level 2 header
 Prerequisites
 -------------
 
-Since ChangelogAutomation is distributed as a self-contained .NET 5 application, it requires the .NET 5 dependencies to be available on the user machine to run. See more information on the dependencies for various operating systems:
+Since ChangelogAutomation is distributed as a self-contained .NET 5 application, it requires the .NET 5 dependencies (but not the .NET 5 runtime itself) to be available on the user machine to run. See more information on the dependencies for various operating systems:
 
 - [Linux][deps.linux] (see distribution-specific sections for dependencies)
 - [Windows][deps.windows]
