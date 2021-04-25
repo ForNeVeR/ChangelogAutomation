@@ -117,7 +117,7 @@ Documentation
 [maintainership]: ./MAINTAINERSHIP.md
 [nuget.package]: https://www.nuget.org/packages/ChangelogAutomation.MSBuild/
 [releases]: https://github.com/ForNeVeR/ChangelogAutomation/releases
-[github.actions]: https://github.com/marketplace/actions/changelogautomation-action
+[github-actions]: https://github.com/marketplace/actions/changelogautomation-action
 
 [nuget.badge]: https://img.shields.io/nuget/v/ChangelogAutomation.MSBuild
 [status-aquana]: https://img.shields.io/badge/status-aquana-yellowgreen.svg
