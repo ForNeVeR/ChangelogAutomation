@@ -25,8 +25,8 @@ Since ChangelogAutomation is distributed as a self-contained .NET 5 application,
 - [Windows][deps.windows]
 - [macOS][deps.macos]
 
-Installation
-------------
+Installation (console tool)
+---------------------------
 
 1. Download the latest stable distribution binaries for your operating system from [GitHub releases page][releases].
 2. Unpack the archive, and run `ChangelogAutomation` (or `ChangelogAutomation.exe`) binary from it.
@@ -62,6 +62,14 @@ There are MSBuild properties to tune its behavior:
 - `DisableChangelogAutomationTask`: set this to `true` to disable the automatic task invocation (if you want to register it with the custom parameters).
 - `ChangelogFilePath`: point it to the `CHANGELOG.md` file. By default, will be set to `../CHANGELOG.md` (resolved relatively to the project file location).
 - `ReleaseNotesOutputType`: either `Markdown` or `PlainText`. If not set, defaults to `PlainText`.
+
+Remember to install the package with `PrivateAssets` set up to `All`, like this (in your project file):
+
+```xml
+<PackageReference Include="ChangelogAutomation.MSBuild" Version="x.y.z" PrivateAssets="All" />
+```
+
+This will make sure that the package isn't considered as a publicly-visible dependency of your project, and is only used as a development dependency.
 
 Development
 -----------
