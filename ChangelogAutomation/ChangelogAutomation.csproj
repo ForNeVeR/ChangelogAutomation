@@ -5,6 +5,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <IsPackable>false</IsPackable>
         <RollForward>Major</RollForward>
+        <WarningsNotAsErrors>IL2104</WarningsNotAsErrors>
     </PropertyGroup>
 
     <Import Project="..\DownloadMarkdigLicense.targets" />

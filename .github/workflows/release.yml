@@ -34,19 +34,19 @@ jobs:
       - name: Publish for Linux
         shell: pwsh
         run: >
-          dotnet publish ChangelogAutomation --runtime linux-x64 --configuration Release --output ./publish.linux-x64 -p:PublishTrimmed=true -p:PublishSingleFile=true
+          dotnet publish ChangelogAutomation --self-contained --runtime linux-x64 --configuration Release --output ./publish.linux-x64 -p:PublishTrimmed=true -p:PublishSingleFile=true
           && Set-Location ./publish.linux-x64
           && zip -r ../ChangelogAutomation-v${{ steps.version.outputs.version }}.linux-x64.zip *
       - name: Publish for macOS
         shell: pwsh
         run: >
-          dotnet publish ChangelogAutomation --runtime osx-x64 --configuration Release --output ./publish.osx-x64 -p:PublishTrimmed=true -p:PublishSingleFile=true
+          dotnet publish ChangelogAutomation --self-contained --runtime osx-x64 --configuration Release --output ./publish.osx-x64 -p:PublishTrimmed=true -p:PublishSingleFile=true
           && Set-Location ./publish.osx-x64
           && zip -r ../ChangelogAutomation-v${{ steps.version.outputs.version }}.osx-x64.zip *
       - name: Publish for Windows
         shell: pwsh
         run: >
-          dotnet publish ChangelogAutomation --runtime win-x64 --configuration Release --output ./publish.win-x64 -p:PublishTrimmed=true -p:PublishSingleFile=true
+          dotnet publish ChangelogAutomation --self-contained --runtime win-x64 --configuration Release --output ./publish.win-x64 -p:PublishTrimmed=true -p:PublishSingleFile=true
           && Set-Location ./publish.win-x64
           && zip -r ../ChangelogAutomation-v${{ steps.version.outputs.version }}.win-x64.zip *
 
