@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased] (1.1.0)
 ### Added
 - [#14: Multi-target support for MSBuild](https://github.com/ForNeVeR/ChangelogAutomation/issues/14)
+- Ability to run on newer target frameworks than the tool is built for (aka `RollForward = Major`)
 
 ## [1.0.1] - 2021-04-25
 ### Fixed
