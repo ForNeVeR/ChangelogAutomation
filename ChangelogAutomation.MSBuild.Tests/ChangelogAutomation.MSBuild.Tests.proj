@@ -1,7 +1,10 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
     <ItemGroup>
         <Content Include="Extract-ReleaseNotes.ps1" />
+        <Content Include="MultiFrameworkTest.csproj" />
         <Content Include="Run-PackageValidation.ps1" />
         <Content Include="Run-Test.ps1" />
+        <Content Include="SingleFrameworkTest.csproj" />
+        <Content Include="Program.cs" />
     </ItemGroup>
 </Project>

@@ -6,6 +6,6 @@
     <PropertyGroup>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <Nullable>enable</Nullable>
-        <LangVersion>9</LangVersion>
+        <LangVersion>11</LangVersion>
     </PropertyGroup>
 </Project>
