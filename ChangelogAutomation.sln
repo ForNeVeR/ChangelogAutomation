@@ -31,6 +31,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.MSBuild
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.MSBuild.Tests", "ChangelogAutomation.MSBuild.Tests\ChangelogAutomation.MSBuild.Tests.proj", "{D8504D94-4960-4288-8052-76054DF8FCBA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{C5DC7801-445A-4C50-B6AA-C53222C654FC}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\Get-Version.ps1 = scripts\Get-Version.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

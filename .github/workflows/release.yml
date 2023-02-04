@@ -18,13 +18,13 @@ jobs:
       DOTNET_NOLOGO: 1
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
     steps:
-      - name: Read version from Git ref
-        id: version
-        shell: pwsh
-        run: echo "version=$(if ($env:GITHUB_REF.StartsWith('refs/tags/v')) { $env:GITHUB_REF -replace '^refs/tags/v', '' } else { 'next' })" >> $env:GITHUB_OUTPUT
-
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Read version from ref
+        id: version
+        shell: pwsh
+        run: echo "version=$(./scripts/Get-Version.ps1 -RefName $env:GITHUB_REF)" >> $env:GITHUB_OUTPUT
 
       - name: Set up .NET SDK
         uses: actions/setup-dotnet@v1
