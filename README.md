@@ -74,7 +74,7 @@ This will make sure that the package isn't considered as a publicly-visible depe
 Development
 -----------
 
-ChangelogAutomation is a .NET 5 application, so it requires [.NET 5 SDK][dotnet-sdk] (or a later version) for build.
+ChangelogAutomation is a .NET 5 application, and it requires [.NET 7 SDK][dotnet-sdk] (or a later version) for build.
 
 To build the application, run the following command:
 
