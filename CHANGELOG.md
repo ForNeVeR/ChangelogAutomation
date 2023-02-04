@@ -5,7 +5,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] (1.1.0)
+## [Unreleased] (2.0.0)
+### Changed
+- **(Breaking change.)** Updated from .NET 5 to .NET 6.
+
 ### Added
 - [#14: Multi-target support for MSBuild](https://github.com/ForNeVeR/ChangelogAutomation/issues/14)
 - Ability to run on newer target frameworks than the tool is built for (aka `RollForward = Major`)
