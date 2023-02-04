@@ -57,6 +57,10 @@ jobs:
         id: changelog
         run: dotnet run --project ChangelogAutomation -- ./CHANGELOG.md --outputFilePath ./release-data.md
 
+      - name: Push a package to NuGet
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: dotnet nuget push ./ChangelogAutomation.MSBuild/bin/Release/ChangelogAutomation.MSBuild.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_TOKEN }}
+
       - name: Create release
         if: startsWith(github.ref, 'refs/tags/v')
         id: release
@@ -109,7 +113,3 @@ jobs:
           asset_name: ChangelogAutomation.MSBuild.${{ steps.version.outputs.version }}.nupkg
           asset_path: ./ChangelogAutomation.MSBuild/bin/Release/ChangelogAutomation.MSBuild.${{ steps.version.outputs.version }}.nupkg
           asset_content_type: application/zip
-
-      - name: Push a package to NuGet
-        if: startsWith(github.ref, 'refs/tags/v')
-        run: dotnet nuget push ./ChangelogAutomation.MSBuild/bin/Release/ChangelogAutomation.MSBuild.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_TOKEN }}
