@@ -63,14 +63,6 @@ There are MSBuild properties to tune its behavior:
 - `ChangelogFilePath`: point it to the `CHANGELOG.md` file. By default, will be set to `../CHANGELOG.md` (resolved relatively to the project file location).
 - `ReleaseNotesOutputType`: either `Markdown` or `PlainText`. If not set, defaults to `PlainText`.
 
-Remember to install the package with `PrivateAssets` set up to `All`, like this (in your project file):
-
-```xml
-<PackageReference Include="ChangelogAutomation.MSBuild" Version="x.y.z" PrivateAssets="All" />
-```
-
-This will make sure that the package isn't considered as a publicly-visible dependency of your project, and is only used as a development dependency.
-
 Development
 -----------
 

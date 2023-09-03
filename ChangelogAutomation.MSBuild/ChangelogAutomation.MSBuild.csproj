@@ -15,6 +15,7 @@
         <PackageProjectUrl>https://github.com/ForNeVeR/ChangelogAutomation</PackageProjectUrl>
         <RepositoryUrl>https://github.com/ForNeVeR/ChangelogAutomation.git</RepositoryUrl>
         <PackageTags>changelog; msbuild</PackageTags>
+        <IsDevelopmentDependency>true</IsDevelopmentDependency>
     </PropertyGroup>
 
     <Import Project="..\DownloadMarkdigLicense.targets" />
