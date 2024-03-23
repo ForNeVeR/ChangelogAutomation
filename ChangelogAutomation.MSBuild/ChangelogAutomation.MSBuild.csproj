@@ -3,8 +3,15 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <IsPackable>true</IsPackable>
-        <PackDependencies>false</PackDependencies>
-        <PackFolder>tools</PackFolder>
+        <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+        <IsTool>true</IsTool>
+
+        <!--
+            This will suppress a warning causing issues with tool packaging. Our package doesn't have the lib/net6.0
+            folder, and this is okay; no need to warn about this.
+         -->
+        <NoWarn>$(NoWarn);NU5128</NoWarn>
+        <DevelopmentDependency>true</DevelopmentDependency>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -15,8 +22,13 @@
         <PackageProjectUrl>https://github.com/ForNeVeR/ChangelogAutomation</PackageProjectUrl>
         <RepositoryUrl>https://github.com/ForNeVeR/ChangelogAutomation.git</RepositoryUrl>
         <PackageTags>changelog; msbuild</PackageTags>
-        <IsDevelopmentDependency>true</IsDevelopmentDependency>
     </PropertyGroup>
+
+    <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="BuildOnlySettings;ResolveReferences">
+        <ItemGroup>
+            <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'All'))" />
+        </ItemGroup>
+    </Target>
 
     <Import Project="..\DownloadMarkdigLicense.targets" />
     <Import Project="SetPackageReleaseNotesExternal.tasks" />
@@ -49,7 +61,7 @@
         <Content Include="ChangelogAutomation.MSBuild.props" PackagePath="build\ChangelogAutomation.MSBuild.props" />
         <Content Include="ChangelogAutomation.MSBuild.targets" PackagePath="build\ChangelogAutomation.MSBuild.targets" />
 
-        <PackageFile Include="lib\netcoreapp3.1\Markdig.dll" PackagePath="tools\Markdig.dll" PackageReference="Markdig" Visible="false" />
+        <Content Include="$(PkgMarkdig)\lib\netcoreapp3.1\Markdig.dll" PackagePath="tools\Markdig.dll" Visible="false" />
     </ItemGroup>
 
     <ItemGroup>
@@ -60,7 +72,6 @@
     <ItemGroup>
         <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj" PrivateAssets="All" />
         <PackageReference Include="Markdig" Version="0.23.0" GeneratePathProperty="true" />
-        <PackageReference Include="NuGetizer" Version="0.6.2" />
     </ItemGroup>
 
 </Project>
