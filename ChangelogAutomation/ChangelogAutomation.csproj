@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="ConsoleAppFramework" Version="3.3.0" />
+        <PackageReference Include="ConsoleAppFramework" Version="3.3.2" />
     </ItemGroup>
 
     <ItemGroup>
