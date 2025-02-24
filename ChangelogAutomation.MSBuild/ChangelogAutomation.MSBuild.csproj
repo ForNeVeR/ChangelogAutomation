@@ -61,7 +61,7 @@
         <Content Include="ChangelogAutomation.MSBuild.props" PackagePath="build\ChangelogAutomation.MSBuild.props" />
         <Content Include="ChangelogAutomation.MSBuild.targets" PackagePath="build\ChangelogAutomation.MSBuild.targets" />
 
-        <Content Include="$(PkgMarkdig)\lib\netcoreapp3.1\Markdig.dll" PackagePath="tools\Markdig.dll" Visible="false" />
+        <Content Include="$(PkgMarkdig)\lib\netstandard2.1\Markdig.dll" PackagePath="tools\Markdig.dll" Visible="false" />
     </ItemGroup>
 
     <ItemGroup>

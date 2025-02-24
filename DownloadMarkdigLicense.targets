@@ -4,7 +4,7 @@
         <MarkdigLicenseFilePath>$(BaseIntermediateOutputPath)$(MarkdigLicenseFileName)</MarkdigLicenseFilePath>
     </PropertyGroup>
     <Target Name="DownloadMarkdigLicense" BeforeTargets="GetCopyToPublishDirectoryItems; GenerateNuSpec">
-        <DownloadFile SourceUrl="https://raw.githubusercontent.com/xoofx/markdig/0.23.0/license.txt"
+        <DownloadFile SourceUrl="https://raw.githubusercontent.com/xoofx/markdig/0.40.0/license.txt"
                       DestinationFolder="$(BaseIntermediateOutputPath)"
                       DestinationFileName="$(MarkdigLicenseFileName)"
                       SkipUnchangedFiles="true" />
