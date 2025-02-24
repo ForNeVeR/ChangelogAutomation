@@ -19,11 +19,7 @@ Also level 2 header
 Prerequisites
 -------------
 
-Since ChangelogAutomation is distributed as a self-contained .NET 6 application, it requires the .NET 6 dependencies (but not the .NET 6 runtime itself) to be available on the user machine to run. See more information on the dependencies for various operating systems:
-
-- [Linux][deps.linux] (see distribution-specific sections for dependencies)
-- [Windows][deps.windows]
-- [macOS][deps.macos]
+Since ChangelogAutomation is distributed as a self-contained .NET 9 application, it requires the .NET 9 dependencies (but not the .NET 9 runtime itself) to be available on the user machine to run. See more information [in the documentation][docs.dotnet.install].
 
 Installation (console tool)
 ---------------------------
@@ -108,16 +104,13 @@ Documentation
 
 [andivionian-status-classifier]: https://github.com/ForNeVeR/andivionian-status-classifier#status-aquana-
 [changelog]: ./CHANGELOG.md
-[deps.linux]: https://docs.microsoft.com/en-us/dotnet/core/install/linux
-[deps.macos]: https://docs.microsoft.com/en-us/dotnet/core/install/macos#dependencies
-[deps.windows]: https://docs.microsoft.com/en-us/dotnet/core/install/windows?tabs=net50#dependencies
+[docs.dotnet.install]: https://learn.microsoft.com/en-us/dotnet/core/install/
 [dotnet-sdk]: https://dotnet.microsoft.com/
+[github-actions]: https://github.com/marketplace/actions/changelogautomation-action
 [keep-a-changelog]: http://keepachangelog.com/
 [license]: ./LICENSE.md
 [maintainership]: ./MAINTAINERSHIP.md
+[nuget.badge]: https://img.shields.io/nuget/v/ChangelogAutomation.MSBuild
 [nuget.package]: https://www.nuget.org/packages/ChangelogAutomation.MSBuild/
 [releases]: https://github.com/ForNeVeR/ChangelogAutomation/releases
-[github-actions]: https://github.com/marketplace/actions/changelogautomation-action
-
-[nuget.badge]: https://img.shields.io/nuget/v/ChangelogAutomation.MSBuild
 [status-aquana]: https://img.shields.io/badge/status-aquana-yellowgreen.svg
