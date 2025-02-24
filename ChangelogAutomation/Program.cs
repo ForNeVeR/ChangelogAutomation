@@ -2,7 +2,6 @@
 using ChangelogAutomation.Core;
 using ConsoleAppFramework;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace ChangelogAutomation
 {
@@ -10,12 +9,11 @@ namespace ChangelogAutomation
     {
         public static async Task Main(string[] args)
         {
-            await Host.CreateDefaultBuilder()
-                .ConfigureServices(ConfigureServices)
-                .RunConsoleAppFrameworkAsync<Application>(args, new ConsoleAppOptions
-                {
-                    StrictOption = true
-                });
+            var app = ConsoleApp.Create()
+                .ConfigureServices(ConfigureServices);
+
+            app.Add<Application>("");
+            await app.RunAsync(args);
         }
 
         private static void ConfigureServices(IServiceCollection services)
