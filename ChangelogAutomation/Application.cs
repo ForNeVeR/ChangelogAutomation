@@ -6,55 +6,57 @@ using ChangelogAutomation.Core;
 using ConsoleAppFramework;
 using JetBrains.Annotations;
 
-namespace ChangelogAutomation
+namespace ChangelogAutomation;
+
+[UsedImplicitly]
+public class Application
 {
-    [UsedImplicitly]
-    public class Application : ConsoleAppBase
+    private readonly MarkdownToMarkdownConverter _markdownConverter;
+    private readonly MarkdownToPlainTextConverter _plainTextConverter;
+
+    public Application(
+        MarkdownToMarkdownConverter markdownConverter,
+        MarkdownToPlainTextConverter plainTextConverter)
     {
-        private readonly MarkdownToMarkdownConverter _markdownConverter;
-        private readonly MarkdownToPlainTextConverter _plainTextConverter;
+        _markdownConverter = markdownConverter;
+        _plainTextConverter = plainTextConverter;
+    }
 
-        public Application(
-            MarkdownToMarkdownConverter markdownConverter,
-            MarkdownToPlainTextConverter plainTextConverter)
+    public enum ContentType
+    {
+        Markdown,
+        PlainText
+    }
+
+    /// <param name="inputFilePath">Path to the input Markdown file</param>
+    /// <param name="outputFilePath">-o|Output file path. Will use the standard output if not specified.</param>
+    /// <param name="contentType">-t|Output type, either Markdown or PlainText.</param>
+    [UsedImplicitly]
+    public async Task Run(
+        [Argument] string inputFilePath,
+        string? outputFilePath = null,
+        ContentType contentType = ContentType.Markdown)
+    {
+        Console.OutputEncoding = Encoding.UTF8;
+
+        await using var inputStream = new FileStream(inputFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+
+        using var inputMdStream = new MarkdownStream(inputStream);
+        var text = contentType switch
         {
-            _markdownConverter = markdownConverter;
-            _plainTextConverter = plainTextConverter;
-        }
+            ContentType.PlainText =>
+                (await _plainTextConverter.ExtractVersionSectionPlainText(inputMdStream)).Content,
+            _ => (await _markdownConverter.ExtractVersionSection(inputMdStream)).Content
+        };
 
-        public enum ContentType
+        if (outputFilePath == null)
+            await Console.Out.WriteLineAsync(text);
+        else
         {
-            Markdown,
-            PlainText
-        }
+            await using var outputFile = new FileStream(outputFilePath, FileMode.CreateNew);
+            await using var writer = new StreamWriter(outputFile);
 
-        [UsedImplicitly]
-        public async Task Run(
-            [Option(0, "Path to the input Markdown file")] string inputFilePath,
-            [Option("o", "Output file path")] string? outputFilePath = null,
-            [Option("t", "Output type, either Markdown or PlainText")] ContentType contentType = ContentType.Markdown)
-        {
-            Console.OutputEncoding = Encoding.UTF8;
-
-            await using var inputStream = new FileStream(inputFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-
-            using var inputMdStream = new MarkdownStream(inputStream);
-            var text = contentType switch
-            {
-                ContentType.PlainText =>
-                    (await _plainTextConverter.ExtractVersionSectionPlainText(inputMdStream)).Content,
-                _ => (await _markdownConverter.ExtractVersionSection(inputMdStream)).Content
-            };
-
-            if (outputFilePath == null)
-                await Console.Out.WriteLineAsync(text);
-            else
-            {
-                await using var outputFile = new FileStream(outputFilePath, FileMode.CreateNew);
-                await using var writer = new StreamWriter(outputFile);
-
-                await writer.WriteLineAsync(text);
-            }
+            await writer.WriteLineAsync(text);
         }
     }
 }

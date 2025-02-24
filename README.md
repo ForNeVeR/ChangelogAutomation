@@ -48,8 +48,8 @@ $ ChangelogAutomation <path-to-input-file> [options…]
 
 The available options are:
 
-- `(-o|--outputFilePath) <output-file-path>` (if not specified, then will print to stdout)
-- `(-t|--contentType) (Markdown|PlainText)`: output content type
+- `(-o|--output-file-path) <output-file-path>` (if not specified, then will print to stdout)
+- `(-t|--content-type) (Markdown|PlainText)`: output content type
 
 ### MSBuild
 
