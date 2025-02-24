@@ -18,7 +18,7 @@ $expectedReleaseNotes = normalize(
     & $dotnet run `
         --project $ChangelogAutomationCsproj -- `
         $ChangelogFilePath `
-        --contentType PlainText
+        --content-type PlainText
 )
 
 if ($expectedReleaseNotes -ne $actualReleaseNotes) {
