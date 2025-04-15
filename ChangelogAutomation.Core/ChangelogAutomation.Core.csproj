@@ -7,7 +7,7 @@
 
     <ItemGroup>
         <PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />
-        <PackageReference Include="Markdig" Version="0.40.0" />
+        <PackageReference Include="Markdig" Version="0.41.0" />
     </ItemGroup>
 
 </Project>

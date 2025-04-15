@@ -71,7 +71,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj" PrivateAssets="All" />
-        <PackageReference Include="Markdig" Version="0.40.0" GeneratePathProperty="true" />
+        <PackageReference Include="Markdig" Version="0.41.0" GeneratePathProperty="true" />
     </ItemGroup>
 
 </Project>
