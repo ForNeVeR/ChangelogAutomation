@@ -59,6 +59,20 @@ There are MSBuild properties to tune its behavior:
 - `ChangelogFilePath`: point it to the `CHANGELOG.md` file. By default, will be set to `../CHANGELOG.md` (resolved relatively to the project file location).
 - `ReleaseNotesOutputType`: either `Markdown` or `PlainText`. If not set, defaults to `PlainText`.
 
+### .NET Tool
+
+ChangelogAutomation is available as a .NET Tool.
+
+Use this command to install it:
+```
+dotnet tool install --global ChangelogAutomation.Tool
+```
+
+Then you can run the tool using:
+```
+ChangelogAutomation CHANGELOG.md --output-file-path release-notes.md --content-type Markdown
+```
+
 Development
 -----------
 

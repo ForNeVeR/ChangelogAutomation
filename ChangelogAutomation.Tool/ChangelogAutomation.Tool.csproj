@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <IsPackable>true</IsPackable>
+        <IsTool>true</IsTool>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>ChangelogAutomation</ToolCommandName>
+        <PackageId>ChangelogAutomation.Tool</PackageId>
+        <Nullable>enable</Nullable>
+        <RollForward>Major</RollForward>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>ChangelogAutomation.Tool</Title>
+        <Description>.NET Tool for ChangelogAutomation</Description>
+        <Authors>ForNeVeR</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/ForNeVeR/ChangelogAutomation</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/ForNeVeR/ChangelogAutomation.git</RepositoryUrl>
+        <PackageTags>changelog; msbuild</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\CHANGELOG.md" Link="docs\CHANGELOG.md" CopyToPublishDirectory="Always" />
+        <None Include="..\LICENSE.md" Link="docs\LICENSE.md" CopyToPublishDirectory="Always" />
+        <None Include="..\README.md" Link="docs\README.md" CopyToPublishDirectory="Always" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ChangelogAutomation\ChangelogAutomation.csproj" />
+    </ItemGroup>
+
+</Project>
