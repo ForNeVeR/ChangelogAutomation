@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 - The MSBuild package is now treated as a development dependency by default.
+- ChangelogAutomation is now available as a .NET Tool.
 
 ## [2.0.0] - 2023-02-04
 ### Changed

@@ -50,16 +50,20 @@ jobs:
           && Set-Location ./publish.win-x64
           && zip -r ../ChangelogAutomation-v${{ steps.version.outputs.version }}.win-x64.zip *
 
-      - name: Prepare a NuGet package
+      - name: Prepare a NuGet packages
         run: dotnet pack --configuration Release -p:Version=${{ steps.version.outputs.version }}
 
       - name: Read changelog
         id: changelog
         run: dotnet run --project ChangelogAutomation -- ./CHANGELOG.md --output-file-path ./release-data.md
 
-      - name: Push a package to NuGet
+      - name: Push an MSBuild package to NuGet
         if: startsWith(github.ref, 'refs/tags/v')
         run: dotnet nuget push ./ChangelogAutomation.MSBuild/bin/Release/ChangelogAutomation.MSBuild.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_TOKEN }}
+
+      - name: Push an Tool package to NuGet
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: dotnet nuget push ./ChangelogAutomation.Tool/bin/Release/ChangelogAutomation.Tool.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_TOKEN }}
 
       - name: Create release
         if: startsWith(github.ref, 'refs/tags/v')
@@ -103,7 +107,7 @@ jobs:
           asset_path: ./ChangelogAutomation-v${{ steps.version.outputs.version }}.win-x64.zip
           asset_content_type: application/zip
 
-      - name: Upload .nupkg file
+      - name: Upload .nupkg file for MSBuild package
         if: startsWith(github.ref, 'refs/tags/v')
         uses: actions/upload-release-asset@v1
         env:
@@ -112,4 +116,15 @@ jobs:
           upload_url: ${{ steps.release.outputs.upload_url }}
           asset_name: ChangelogAutomation.MSBuild.${{ steps.version.outputs.version }}.nupkg
           asset_path: ./ChangelogAutomation.MSBuild/bin/Release/ChangelogAutomation.MSBuild.${{ steps.version.outputs.version }}.nupkg
+          asset_content_type: application/zip
+
+      - name: Upload .nupkg file for Tool package
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_name: ChangelogAutomation.Tool.${{ steps.version.outputs.version }}.nupkg
+          asset_path: ./ChangelogAutomation.Tool/bin/Release/ChangelogAutomation.Tool.${{ steps.version.outputs.version }}.nupkg
           asset_content_type: application/zip
