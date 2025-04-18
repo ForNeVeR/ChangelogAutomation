@@ -1,4 +1,4 @@
-ChangelogAutomation [![NuGet Package][nuget.badge]][nuget.package] [![Status Terrid][status-terrid]][andivionian-status-classifier]
+ChangelogAutomation [![Status Terrid][status-terrid]][andivionian-status-classifier]
 ===================
 
 When preparing a software release, a common task is to parse [the changelog file][keep-a-changelog], and extract the latest changes section from it. For certain purposes, Markdown format is acceptable, but in some cases a text format is also useful.
@@ -21,12 +21,6 @@ Prerequisites
 
 Since ChangelogAutomation is distributed as a self-contained .NET 9 application, it requires the .NET 9 dependencies (but not the .NET 9 runtime itself) to be available on the user machine to run. See more information [in the documentation][docs.dotnet.install].
 
-Installation (console tool)
----------------------------
-
-1. Download the latest stable distribution binaries for your operating system from [GitHub releases page][releases].
-2. Unpack the archive, and run `ChangelogAutomation` (or `ChangelogAutomation.exe`) binary from it.
-
 Usage
 -----
 
@@ -34,20 +28,29 @@ Usage
 
 There's a separate repository with GitHub Action integration of this tool. Check out [the documentation][github-actions].
 
-### Console tool
+### Console Tool [![NuGet Package][nuget.badge.tool]][nuget.package.tool]
 
-This invocation will extract the first second-level section of the file, and write it to the output (either the standard one, or an optional output file):
+ChangelogAutomation is available for installation in two variants:
+- as a .NET tool:
+  ```console
+  $ dotnet tool install --global ChangelogAutomation.Tool
+  ```
+- as a standalone native tool for several operating systems on the [GitHub releases page][releases].
 
+Then you can run the tool using:
 ```console
 $ ChangelogAutomation <path-to-input-file> [options…]
 ```
 
-The available options are:
+This invocation will extract the first second-level section of the file and write it to the output
+(either the standard output or an optional output file).
+
+The available *options* are:
 
 - `(-o|--output-file-path) <output-file-path>` (if not specified, then will print to stdout)
 - `(-t|--content-type) (Markdown|PlainText)`: output content type
 
-### MSBuild
+### MSBuild [![NuGet Package][nuget.badge.msbuild]][nuget.package.msbuild]
 
 There's an MSBuild task package available. The package will automatically integrate with `dotnet pack`, and extract the latest changelog entry into the `<releaseNotes>` element in the `.nuspec` file.
 
@@ -58,20 +61,6 @@ There are MSBuild properties to tune its behavior:
 - `DisableChangelogAutomationTask`: set this to `true` to disable the automatic task invocation (if you want to register it with the custom parameters).
 - `ChangelogFilePath`: point it to the `CHANGELOG.md` file. By default, will be set to `../CHANGELOG.md` (resolved relatively to the project file location).
 - `ReleaseNotesOutputType`: either `Markdown` or `PlainText`. If not set, defaults to `PlainText`.
-
-### .NET Tool
-
-ChangelogAutomation is available as a .NET Tool.
-
-Use this command to install it:
-```
-dotnet tool install --global ChangelogAutomation.Tool
-```
-
-Then you can run the tool using:
-```
-ChangelogAutomation CHANGELOG.md --output-file-path release-notes.md --content-type Markdown
-```
 
 Development
 -----------
@@ -123,7 +112,9 @@ Documentation
 [keep-a-changelog]: http://keepachangelog.com/
 [license]: ./LICENSE.md
 [maintainership]: ./MAINTAINERSHIP.md
-[nuget.badge]: https://img.shields.io/nuget/v/ChangelogAutomation.MSBuild
-[nuget.package]: https://www.nuget.org/packages/ChangelogAutomation.MSBuild/
+[nuget.badge.msbuild]: https://img.shields.io/nuget/v/ChangelogAutomation.MSBuild
+[nuget.badge.tool]: https://img.shields.io/nuget/v/ChangelogAutomation.Tool
+[nuget.package.msbuild]: https://www.nuget.org/packages/ChangelogAutomation.MSBuild/
+[nuget.package.tool]: https://www.nuget.org/packages/ChangelogAutomation.Tool/
 [releases]: https://github.com/ForNeVeR/ChangelogAutomation/releases
 [status-terrid]: https://img.shields.io/badge/status-terrid-green.svg
