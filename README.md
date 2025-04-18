@@ -18,8 +18,10 @@ Also level 2 header
 
 Prerequisites
 -------------
-
-Since ChangelogAutomation is distributed as a self-contained .NET 9 application, it requires the .NET 9 dependencies (but not the .NET 9 runtime itself) to be available on the user machine to run. See more information [in the documentation][docs.dotnet.install].
+If you use the standalone tool (see below),
+then ChangelogAutomation will require the .NET 9 dependencies
+(but not the .NET 9 runtime itself) to be available on the user machine to run.
+See more information [in the documentation][docs.dotnet.install].
 
 Usage
 -----
