@@ -15,12 +15,7 @@
 
     <PropertyGroup>
         <Title>ChangelogAutomation.Tool</Title>
-        <Description>.NET Tool for ChangelogAutomation</Description>
-        <Authors>ForNeVeR</Authors>
-        <PackageLicenseExpression>MIT and BSD-2-Clause <!-- Markdig --></PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/ForNeVeR/ChangelogAutomation</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/ForNeVeR/ChangelogAutomation.git</RepositoryUrl>
-        <PackageTags>changelog; msbuild</PackageTags>
+        <Description>.NET tool that helps to extract the latest version release notes from the the CHANGELOG.md file.</Description>
     </PropertyGroup>
 
     <Import Project="..\SetPackageReleaseNotesExternal.tasks" />

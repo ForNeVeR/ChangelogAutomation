@@ -17,7 +17,6 @@
     <PropertyGroup>
         <Title>ChangelogAutomation.MSBuild</Title>
         <Description>MSBuild task and target that will automatically extract the latest version release notes from the CHANGELOG.md file and add them to the NuGet package description.</Description>
-        <Authors>ForNeVeR</Authors>
     </PropertyGroup>
 
     <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="BuildOnlySettings;ResolveReferences">
