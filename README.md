@@ -67,7 +67,7 @@ There are MSBuild properties to tune its behavior:
 Development
 -----------
 
-ChangelogAutomation is a .NET 6 application, so it requires [.NET 6 SDK][dotnet-sdk] (or a later version) for build.
+ChangelogAutomation is a .NET 9 application, so it requires [.NET 9 SDK][dotnet-sdk] (or a later version) for build.
 
 To build the application, run the following command:
 
