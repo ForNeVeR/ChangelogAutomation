@@ -18,10 +18,6 @@
         <Title>ChangelogAutomation.MSBuild</Title>
         <Description>MSBuild task and target that will automatically extract the latest version release notes from the CHANGELOG.md file and add them to the NuGet package description.</Description>
         <Authors>ForNeVeR</Authors>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://github.com/ForNeVeR/ChangelogAutomation</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/ForNeVeR/ChangelogAutomation.git</RepositoryUrl>
-        <PackageTags>changelog; msbuild</PackageTags>
     </PropertyGroup>
 
     <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="BuildOnlySettings;ResolveReferences">
@@ -30,8 +26,7 @@
         </ItemGroup>
     </Target>
 
-    <Import Project="..\DownloadMarkdigLicense.targets" />
-    <Import Project="SetPackageReleaseNotesExternal.tasks" />
+    <Import Project="..\SetPackageReleaseNotesExternal.tasks" />
     <Target Name="SetPackageReleaseNotesExternal"
             AfterTargets="GetPackageMetadata" BeforeTargets="GenerateNuSpec">
         <Message Importance="high" Text="Extracting release notes from ../CHANGELOG.md" />
@@ -52,8 +47,6 @@
                  PackagePath="docs\ChangelogAutomation.LICENSE.md" />
         <Content Include="..\README.md" Link="docs\README.md"
                  PackagePath="docs\README.md" />
-        <Content Include="$(MarkdigLicenseFilePath)" Link="docs\$(MarkdigLicenseFileName)"
-                 PackagePath="docs/$(MarkdigLicenseFileName)" />
 
         <Content Include="ChangelogAutomation.MSBuild.props" PackagePath="buildMultiTargeting\ChangelogAutomation.MSBuild.props" />
         <Content Include="ChangelogAutomation.MSBuild.targets" PackagePath="buildMultiTargeting\ChangelogAutomation.MSBuild.targets" />

@@ -8,4 +8,15 @@
         <Nullable>enable</Nullable>
         <LangVersion>13</LangVersion>
     </PropertyGroup>
+    <PropertyGroup Label="Packaging">
+        <Authors>ForNeVeR</Authors>
+        <PackageLicenseExpression>MIT and BSD-2-Clause <!-- Markdig --></PackageLicenseExpression>
+        <Copyright>
+            2021-2025 ChangelogAutomation contributors;
+            Alexandre Mutel <!-- Markdig -->
+        </Copyright>
+        <PackageProjectUrl>https://github.com/ForNeVeR/ChangelogAutomation</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/ForNeVeR/ChangelogAutomation.git</RepositoryUrl>
+        <PackageTags>changelog; msbuild</PackageTags>
+    </PropertyGroup>
 </Project>

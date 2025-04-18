@@ -8,12 +8,10 @@
         <WarningsNotAsErrors>IL2104</WarningsNotAsErrors>
     </PropertyGroup>
 
-    <Import Project="..\DownloadMarkdigLicense.targets" />
     <ItemGroup>
         <None Include="..\CHANGELOG.md" Link="docs\CHANGELOG.md" CopyToPublishDirectory="Always" />
         <None Include="..\LICENSE.md" Link="docs\LICENSE.md" CopyToPublishDirectory="Always" />
         <None Include="..\README.md" Link="docs\README.md" CopyToPublishDirectory="Always" />
-        <None Include="$(MarkdigLicenseFilePath)" Link="docs/$(MarkdigLicenseFileName)" CopyToPublishDirectory="Always" LinkBase="docs" />
     </ItemGroup>
 
     <ItemGroup>

@@ -6,7 +6,7 @@ Publish a New Version
 To release a new version:
 1. Update the project's status in the `README.md` file, if required.
 2. Update the copyright year in [the license file][license], if required.
-3. Update the Markdig license link in `DownloadMarkdigLicense.targets`, if the license needs to be updated.
+3. Update the Markdig license information in the `Directory.Build.props`, if required.
 4. Choose the new version according to [Semantic Versioning][semver]. It should consist of three numbers (e.g. `1.0.0`).
 5. Update the `<Version>` element content in the `Directory.Build.props` file.
 6. Make sure there's a properly formed version entry in [the changelog][changelog].
