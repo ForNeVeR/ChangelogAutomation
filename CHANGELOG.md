@@ -5,16 +5,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] (3.0.0)
+## [3.0.0] - 2025-04-19
 ### Changed
 - **(Breaking change.)** Migrate to a more standard notation for arguments:
   - `--outputFilePath` is now `--output-file-path`,
   - `--contentType` is now `--content-type`.
-- **(Breaking change.)** Update from .NET 6 to .NET 9.
+- **(Requirement change.)** Update from .NET 6 to .NET 9.
+- The MSBuild package is now treated as a development dependency by default.
+- Update dependencies.
 
 ### Added
-- The MSBuild package is now treated as a development dependency by default.
-- ChangelogAutomation is now available as a .NET Tool.
+- ChangelogAutomation is now available as a .NET tool. Install **ChangelogAutomation.Tool** package for that. Thanks to @y0ung3r!
 
 ## [2.0.0] - 2023-02-04
 ### Changed
@@ -39,4 +40,5 @@ This is the initial release of the program. It is available as a standalone tool
 [1.0.0]: https://github.com/ForNeVeR/ChangelogAutomation/releases/tag/v1.0.0
 [1.0.1]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v1.0.0...v1.0.1
 [2.0.0]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v1.0.1...v2.0.0
-[Unreleased]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v2.0.0...HEAD
+[3.0.0]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v2.0.0...v3.0.0
+[Unreleased]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v3.0.0...HEAD
