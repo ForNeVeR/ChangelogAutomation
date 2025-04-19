@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.Build.NoTargets/3.7.56">
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+    
+    <UsingTask TaskName="BuildChangelogTxt"
+               TaskFactory="RoslynCodeTaskFactory"
+               AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+        <ParameterGroup>
+            <ChangelogFile Required="true" ParameterType="System.String" />
+            <PlainTextFile Output="true" ParameterType="System.String" />
+        </ParameterGroup>
+        <Task>
+            <Using Namespace="System.Diagnostics"/>
+            <Code Type="Fragment" Language="cs">
+                var psi = new ProcessStartInfo
+                {
+                    FileName = "dotnet",
+                    Arguments = $"run --project ../ChangelogAutomation/ChangelogAutomation.csproj -- \"{ChangelogFile}\" --content-type PlainText",
+                    RedirectStandardOutput = true
+                };
+                using var process = Process.Start(psi);
+                var content = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+                if (process.ExitCode != 0)
+                {
+                    Log.LogError($"Process returned exit code {process.ExitCode}");
+                    return false;
+                }
+
+                File.WriteAllText(PlainTextFile, content);
+            </Code>
+        </Task>
+    </UsingTask>
+
+    <Target Name="PrepareChangelog"
+            BeforeTargets="Pack"
+            Inputs="..\CHANGELOG.md"
+            Outputs="bin\changelog.txt">
+        <MakeDir Directories="bin" />
+        <Message Importance="high" Text="Extracting release notes from ../CHANGELOG.md" />
+        <BuildChangelogTxt ChangelogFile="..\CHANGELOG.md" PlainTextFile="bin\changelog.txt"/>
+    </Target>
+    
+</Project>

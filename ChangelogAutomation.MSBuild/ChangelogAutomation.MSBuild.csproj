@@ -28,9 +28,9 @@
     <Import Project="..\SetPackageReleaseNotesExternal.tasks" />
     <Target Name="SetPackageReleaseNotesExternal"
             AfterTargets="GetPackageMetadata" BeforeTargets="GenerateNuSpec">
-        <Message Importance="high" Text="Extracting release notes from ../CHANGELOG.md" />
-        <SetPackageReleaseNotesExternal ChangelogFile="..\CHANGELOG.md">
-            <Output TaskParameter="PlainText" PropertyName="PackageReleaseNotes" />
+        <Message Importance="high" Text="Preparing the release notes..." />
+        <SetPackageReleaseNotesExternal TextFile="..\ChangelogAutomation.Changelog\bin\changelog.txt">
+            <Output TaskParameter="Text" PropertyName="PackageReleaseNotes" />
         </SetPackageReleaseNotesExternal>
         <ItemGroup>
             <PackageMetadata Update="$(PackageId)">
@@ -62,6 +62,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\ChangelogAutomation.Changelog\ChangelogAutomation.Changelog.csproj" ReferenceOutputAssembly="false" />
         <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj" PrivateAssets="All" />
         <PackageReference Include="Markdig" Version="0.41.0" GeneratePathProperty="true" />
     </ItemGroup>
