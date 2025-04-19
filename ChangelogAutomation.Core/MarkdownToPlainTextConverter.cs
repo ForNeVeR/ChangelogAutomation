@@ -54,7 +54,7 @@ public class MarkdownToPlainTextConverter : MarkdownConverterBase
                     var nestedRenderer = new NormalizeRenderer(nestedWriter);
                     AppendBlock(item, nestedWriter, nestedRenderer);
 
-                    var quotedLines = nestedWriter.ToString().Split("\n");
+                    var quotedLines = nestedWriter.ToString().Split('\n');
                     for (var i = 0; i < quotedLines.Length; ++i)
                     {
                         var line = quotedLines[i];

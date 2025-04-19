@@ -12,7 +12,7 @@ public class MarkdownConverterBase
 {
     protected async Task<MarkdownDocument> ExtractVersionDocument(MarkdownStream changelogMarkdown)
     {
-        using var reader = new StreamReader(changelogMarkdown.Stream, leaveOpen: true);
+        var reader = new StreamReader(changelogMarkdown.Stream); // note no dispose because we don't want to own the stream
         var text = await reader.ReadToEndAsync();
         var document = Markdown.Parse(text);
         var nodes = ExtractDocumentBlocksDestructively(document).ToList();

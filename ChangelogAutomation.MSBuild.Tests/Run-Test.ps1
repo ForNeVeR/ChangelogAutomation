@@ -17,14 +17,32 @@ $msBuildTaskProject = "$SolutionRootPath/ChangelogAutomation.MSBuild/ChangelogAu
 Write-Output "Cleaning directory $TemporaryDataPath"
 Remove-Item $TemporaryDataPath -Recurse -ErrorAction SilentlyContinue
 
+function Get-TestPackageVersion {
+    $directoryBuildPropsFile = "$SolutionRootPath/Directory.Build.props"
+    [xml] $directoryBuildProps = Get-Content -Raw $directoryBuildPropsFile
+    $version = $directoryBuildProps.SelectSingleNode("//Version").'#text'
+    "$version-test"
+}
+
 $previousNuGetPackages = $env:NUGET_PACKAGES
 try {
     Write-Output "NUGET_PACKAGES = $NuGetCachePath"
     $env:NUGET_PACKAGES = $NuGetCachePath
 
-    Write-Output 'Packaging ChangelogAutomation.MSBuild'
-    & $dotnet pack --configuration Release --output $PackageSourcePath $msBuildTaskProject
+    $packageVersion = Get-TestPackageVersion
+
+    Write-Output "Packaging ChangelogAutomation.MSBuild $packageVersion…"
+    & $dotnet pack --configuration Release --output $PackageSourcePath -p:Version=$packageVersion $msBuildTaskProject
     if (!$?) { throw "dotnet pack returned $LASTEXITCODE" }
+
+    Write-Output 'Emitting a nuget.config file…'
+    @"
+<configuration>
+    <packageSources>
+        <add key="Test Repository" value="$PackageSourcePath"/>
+    </packageSources>
+</configuration>
+"@ > "$TemporaryDataPath/nuget.config"
 
     foreach ($testProjectFileOriginal in $TestProjectFiles) {
         $testProjectName = [IO.Path]::GetFileNameWithoutExtension($testProjectFileOriginal)
@@ -41,7 +59,9 @@ try {
         Copy-Item -LiteralPath $TestProgramFile $testProjectPath
 
         Write-Output 'Adding a NuGet package…'
-        & $dotnet add $testProjectCsprojPath package --source $PackageSourcePath ChangelogAutomation.MSBuild
+        & $dotnet add $testProjectCsprojPath `
+            package ChangelogAutomation.MSBuild `
+            --version $packageVersion
         if (!$?) { throw "dotnet add returned $LASTEXITCODE." }
 
         Write-Output "Writing $testProjectChangelogPath…"

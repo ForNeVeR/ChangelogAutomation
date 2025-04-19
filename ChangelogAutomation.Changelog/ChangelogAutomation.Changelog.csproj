@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.Build.NoTargets/3.7.56">
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
-    
+
     <UsingTask TaskName="BuildChangelogTxt"
                TaskFactory="RoslynCodeTaskFactory"
                AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
@@ -42,5 +42,5 @@
         <Message Importance="high" Text="Extracting release notes from ../CHANGELOG.md" />
         <BuildChangelogTxt ChangelogFile="..\CHANGELOG.md" PlainTextFile="bin\changelog.txt"/>
     </Target>
-    
+
 </Project>
