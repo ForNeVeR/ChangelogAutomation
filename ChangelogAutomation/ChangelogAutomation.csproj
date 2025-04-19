@@ -6,6 +6,8 @@
         <IsPackable>false</IsPackable>
         <RollForward>Major</RollForward>
         <WarningsNotAsErrors>IL2104</WarningsNotAsErrors>
+        <PublishTrimmed>true</PublishTrimmed>
+        <PublishSingleFile>true</PublishSingleFile>
     </PropertyGroup>
 
     <ItemGroup>
