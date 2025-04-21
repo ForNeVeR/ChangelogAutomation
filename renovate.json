@@ -2,5 +2,15 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
         "config:recommended"
+    ],
+    "packageRules": [
+        {
+            "description": "Disable updates for MSBuild as we target lowest version supported by Microsoft. See https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs for more details.",
+            "matchPackagePatterns": [
+                "Microsoft.Build.Framework",
+                "Microsoft.Build.Utilities.Core"
+            ],
+            "enabled": false
+        }
     ]
 }
