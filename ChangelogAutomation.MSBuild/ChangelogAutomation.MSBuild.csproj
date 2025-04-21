@@ -59,7 +59,7 @@
     <ItemGroup>
         <!-- https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs -->
         <PackageReference Include="Microsoft.Build.Framework" Version="17.8.3" />
-        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.8.3" />
+        <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.13.9" />
     </ItemGroup>
 
     <ItemGroup>
