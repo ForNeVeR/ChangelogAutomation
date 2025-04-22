@@ -12,7 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj" />
+        <ProjectReference Include="..\ChangelogAutomation\ChangelogAutomation.csproj" />
+        <ProjectReference Include="..\ChangelogAutomation.Core.Tests\ChangelogAutomation.Core.Tests.csproj" />
     </ItemGroup>
 
 </Project>
