@@ -49,14 +49,26 @@ public class Application
             _ => (await _markdownConverter.ExtractVersionSection(inputMdStream)).Content
         };
 
-        if (outputFilePath == null)
+        if (outputFilePath is null)
+        {
             await Console.Out.WriteLineAsync(text);
+        }
         else
         {
-            await using var outputFile = new FileStream(outputFilePath, FileMode.CreateNew);
-            await using var writer = new StreamWriter(outputFile);
-
-            await writer.WriteLineAsync(text);
+            await CreateReleaseNotesAsync(text, outputFilePath);
         }
+    }
+
+    private static async Task CreateReleaseNotesAsync(string text, string outputFilePath)
+    {
+        var directoryPath = Path.GetDirectoryName(outputFilePath);
+
+        if (directoryPath is not null && !Directory.Exists(directoryPath))
+            Directory.CreateDirectory(directoryPath);
+
+        await using var outputFile = new FileStream(outputFilePath, FileMode.CreateNew);
+        await using var writer = new StreamWriter(outputFile);
+
+        await writer.WriteLineAsync(text);
     }
 }
