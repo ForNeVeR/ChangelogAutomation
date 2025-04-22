@@ -15,7 +15,7 @@ ProjectSection(SolutionItems) = preProject
 	SetPackageReleaseNotesExternal.tasks = SetPackageReleaseNotesExternal.tasks
 EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.Tests", "ChangelogAutomation.Tests\ChangelogAutomation.Tests.csproj", "{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.Core.Tests", "ChangelogAutomation.Core.Tests\ChangelogAutomation.Core.Tests.csproj", "{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{D3406BE3-88EB-4F79-93DE-4C8686581FE9}"
 EndProject

@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
-using ChangelogAutomation.Core;
 using NUnit.Framework;
-using static ChangelogAutomation.Tests.TestFramework;
+using static ChangelogAutomation.Core.Tests.TestFramework;
 
-namespace ChangelogAutomation.Tests
+namespace ChangelogAutomation.Core.Tests
 {
     public class PlainTextTests
     {
