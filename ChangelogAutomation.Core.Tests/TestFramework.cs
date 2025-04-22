@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using System.Text;
-using ChangelogAutomation.Core;
 using NUnit.Framework;
 
-namespace ChangelogAutomation.Tests;
+namespace ChangelogAutomation.Core.Tests;
 
 public static class TestFramework
 {
