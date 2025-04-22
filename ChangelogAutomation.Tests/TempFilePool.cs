@@ -11,7 +11,7 @@ public sealed class TempFilePool : IDisposable
 
     public async Task<string> CreateTempFileAsync(Stream sourceStream)
     {
-        var filePath = GetTempFilePath();
+        var filePath = Path.GetTempFileName();
 
         try
         {
@@ -24,13 +24,6 @@ public sealed class TempFilePool : IDisposable
 
             throw;
         }
-
-        return filePath;
-    }
-
-    public string GetTempFilePath()
-    {
-        var filePath = Path.GetTempFileName();
 
         _filePaths.Add(filePath);
 
