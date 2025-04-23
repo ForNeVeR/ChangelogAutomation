@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.3] - 2025-04-23
+### Fixed
+- [#10: Tool should automatically create the output directory if it doesn't exist](https://github.com/ForNeVeR/ChangelogAutomation/issues/10). Thanks to @y0ung3r!
+
 ## [3.0.2] - 2025-04-21
 ### Changed
 - Downgrade required MSBuild to 17.8.3 to support the oldest supported .NET SDK.
@@ -50,4 +54,6 @@ This is the initial release of the program. It is available as a standalone tool
 [2.0.0]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v1.0.1...v2.0.0
 [3.0.0]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v2.0.0...v3.0.0
 [3.0.1]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v3.0.0...v3.0.1
-[Unreleased]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v3.0.1...HEAD
+[3.0.2]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v3.0.1...v3.0.2
+[3.0.3]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v3.0.2...v3.0.3
+[Unreleased]: https://github.com/ForNeVeR/ChangelogAutomation/compare/v3.0.3...HEAD
