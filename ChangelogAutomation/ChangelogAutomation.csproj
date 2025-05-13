@@ -18,7 +18,7 @@
 
     <ItemGroup>
         <PackageReference Include="ConsoleAppFramework" Version="5.4.1" />
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.5" />
     </ItemGroup>
 
     <ItemGroup>
