@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.IO;
+using System.Threading.Tasks;
 using ChangelogAutomation.Core;
 using JetBrains.Annotations;
 using Microsoft.Build.Framework;
-using Microsoft.Build.Utilities;
+using Task = Microsoft.Build.Utilities.Task;
 
 namespace ChangelogAutomation.MSBuild
 {
@@ -45,9 +46,9 @@ namespace ChangelogAutomation.MSBuild
             return true;
         }
 
-        private static string GetResult(System.Threading.Tasks.Task<MarkdownText> task) =>
+        private static string GetResult(Task<MarkdownText> task) =>
             task.GetAwaiter().GetResult().Content;
-        private static string GetResult(System.Threading.Tasks.Task<PlainText> task) =>
+        private static string GetResult(Task<PlainText> task) =>
             task.GetAwaiter().GetResult().Content;
     }
 }

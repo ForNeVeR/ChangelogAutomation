@@ -1,4 +1,4 @@
-﻿Maintainer Guide
+Maintainer Guide
 ================
 
 Publish a New Version

@@ -1,4 +1,4 @@
-﻿param (
+param (
     $SolutionRootPath = "$PSScriptRoot/..",
     $TemporaryDataPath = "$PSScriptRoot/obj",
     $PackageSourcePath = "$TemporaryDataPath/nuget",

@@ -1,4 +1,4 @@
-﻿namespace ChangelogAutomation.Core
+namespace ChangelogAutomation.Core
 {
     public readonly struct MarkdownText
     {

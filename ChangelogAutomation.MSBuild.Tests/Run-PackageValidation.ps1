@@ -1,4 +1,4 @@
-﻿param (
+param (
     $NupkgPath = "$PSScriptRoot/../ChangelogAutomation.MSBuild/bin/Release/*.nupkg",
     $ChangelogAutomationCsproj = "$PSScriptRoot/../ChangelogAutomation/ChangelogAutomation.csproj",
     $ChangelogFilePath = "$PSScriptRoot/../CHANGELOG.md",

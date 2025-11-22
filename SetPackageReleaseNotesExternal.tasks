@@ -1,4 +1,4 @@
-﻿<Project>
+<Project>
     <UsingTask TaskName="SetPackageReleaseNotesExternal"
                TaskFactory="RoslynCodeTaskFactory"
                AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">

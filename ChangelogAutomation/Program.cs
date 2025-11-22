@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using ChangelogAutomation.Core;
 using ConsoleAppFramework;
 using Microsoft.Extensions.DependencyInjection;

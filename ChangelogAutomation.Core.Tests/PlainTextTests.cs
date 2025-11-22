@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using static ChangelogAutomation.Core.Tests.TestFramework;
 
