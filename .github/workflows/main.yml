@@ -26,7 +26,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: NuGet cache
+      - if: runner.os != 'macOS' # TODO: Restore after https://github.com/actions/runner/issues/449 is fixed.
+        name: NuGet cache
         uses: actions/cache@v4
         with:
           path: ${{ env.NUGET_PACKAGES }}
