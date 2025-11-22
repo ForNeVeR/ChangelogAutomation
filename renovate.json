@@ -19,7 +19,8 @@
             "description": "Update PowerShell modules (VerifyEncoding).",
             "customType": "regex",
             "fileMatch": [
-                "^\\.github/workflows/.+\\.yml$"
+                "^\\.github/workflows/.+\\.yml$",
+                "CONTRIBUTING.md"
             ],
             "matchStrings": [
                 "Install-Module (?<depName>\\S+?) -RequiredVersion (?<currentValue>\\S+)"
