@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021-2025 Friedrich von Never <friedrich@fornever.me>
+#
+# SPDX-License-Identifier: MIT
+
 name: Main
 on:
   push:
@@ -10,6 +14,24 @@ on:
     - cron: '0 0 * * 6'
 
 jobs:
+  encoding:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Verify encoding
+        shell: pwsh
+        run: Install-Module VerifyEncoding -Repository PSGallery -RequiredVersion 2.2.1 -Force && Test-Encoding
+
+  licenses:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out the sources
+        uses: actions/checkout@v5
+      - name: REUSE license check
+        uses: fsfe/reuse-action@v5
+
   main:
     runs-on: ${{ matrix.image }}
     strategy:
@@ -49,13 +71,3 @@ jobs:
       - name: MSBuild task integration test
         shell: pwsh
         run: ./ChangelogAutomation.MSBuild.Tests/Run-Test.ps1
-
-  encoding:
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Verify encoding
-        shell: pwsh
-        run: Install-Module VerifyEncoding -Repository PSGallery -RequiredVersion 2.2.1 -Force && Test-Encoding

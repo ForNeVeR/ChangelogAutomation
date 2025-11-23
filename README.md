@@ -103,20 +103,28 @@ Documentation
 -------------
 
 - [Changelog][changelog]
+- [Contributor Guide][docs.contributing]
 - [Maintainership][maintainership]
-- [License][license] (MIT)
+
+License
+-------
+The project is distributed under the terms of [the MIT license][docs.license].
+
+The license indication in the project's sources is compliant with the [REUSE specification v3.3][reuse.spec].
 
 [andivionian-status-classifier]: https://andivionian.fornever.me/v1/#status-terrid-
 [changelog]: ./CHANGELOG.md
+[docs.contributing]: CONTRIBUTING.md
 [docs.dotnet.install]: https://learn.microsoft.com/en-us/dotnet/core/install/
+[docs.license]: ./LICENSE.md
 [dotnet-sdk]: https://dotnet.microsoft.com/
 [github-actions]: https://github.com/marketplace/actions/changelogautomation-action
 [keep-a-changelog]: http://keepachangelog.com/
-[license]: ./LICENSE.md
 [maintainership]: ./MAINTAINERSHIP.md
 [nuget.badge.msbuild]: https://img.shields.io/nuget/v/ChangelogAutomation.MSBuild
 [nuget.badge.tool]: https://img.shields.io/nuget/v/ChangelogAutomation.Tool
 [nuget.package.msbuild]: https://www.nuget.org/packages/ChangelogAutomation.MSBuild/
 [nuget.package.tool]: https://www.nuget.org/packages/ChangelogAutomation.Tool/
 [releases]: https://github.com/ForNeVeR/ChangelogAutomation/releases
+[reuse.spec]: https://reuse.software/spec-3.3/
 [status-terrid]: https://img.shields.io/badge/status-terrid-green.svg
