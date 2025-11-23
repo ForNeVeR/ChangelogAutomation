@@ -3,6 +3,7 @@
     "extends": [
         "config:recommended"
     ],
+    "automerge": true,
     "packageRules": [
         {
             "description": "Disable updates for MSBuild as we target lowest version supported by Microsoft. See https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs for more details.",
