@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021-2025 ChangelogAutomation contributors <https://github.com/ForNeVeR/ChangelogAutomation>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Threading.Tasks;
 using NUnit.Framework;
 using static ChangelogAutomation.Core.Tests.TestFramework;

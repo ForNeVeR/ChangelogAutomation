@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021-2025 Friedrich von Never <friedrich@fornever.me>
+#
+# SPDX-License-Identifier: MIT
+
 param (
     $NupkgPath = "$PSScriptRoot/../ChangelogAutomation.MSBuild/bin/Release/*.nupkg",
     $ChangelogAutomationCsproj = "$PSScriptRoot/../ChangelogAutomation/ChangelogAutomation.csproj",

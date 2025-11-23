@@ -15,6 +15,9 @@ ProjectSection(SolutionItems) = preProject
 	SetPackageReleaseNotesExternal.tasks = SetPackageReleaseNotesExternal.tasks
 	renovate.json = renovate.json
 	CONTRIBUTING.md = CONTRIBUTING.md
+	REUSE.toml = REUSE.toml
+	ChangelogAutomation.sln.license = ChangelogAutomation.sln.license
+	renovate.json.license = renovate.json.license
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangelogAutomation.Core.Tests", "ChangelogAutomation.Core.Tests\ChangelogAutomation.Core.Tests.csproj", "{F6BE3958-9982-4D7A-8418-ABCC0DEEF314}"
