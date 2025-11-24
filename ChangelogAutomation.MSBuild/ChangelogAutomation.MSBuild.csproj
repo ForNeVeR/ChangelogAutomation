@@ -71,7 +71,7 @@ SPDX-License-Identifier: MIT
     <ItemGroup>
         <ProjectReference Include="..\ChangelogAutomation.Changelog\ChangelogAutomation.Changelog.csproj" ReferenceOutputAssembly="false" />
         <ProjectReference Include="..\ChangelogAutomation.Core\ChangelogAutomation.Core.csproj" PrivateAssets="All" />
-        <PackageReference Include="Markdig" Version="0.42.0" GeneratePathProperty="true" />
+        <PackageReference Include="Markdig" Version="0.43.0" GeneratePathProperty="true" />
     </ItemGroup>
 
 </Project>
