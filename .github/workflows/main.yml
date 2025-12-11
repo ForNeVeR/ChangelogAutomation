@@ -50,7 +50,7 @@ jobs:
 
       - if: runner.os != 'macOS' # TODO[#91]: Restore after https://github.com/actions/runner/issues/449 is fixed.
         name: NuGet cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.NUGET_PACKAGES }}
           key: ${{ runner.os }}.nuget.${{ hashFiles('**/*.csproj') }}
