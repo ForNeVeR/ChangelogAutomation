@@ -1,12 +1,12 @@
 <!--
-SPDX-FileCopyrightText: 2021-2025 Friedrich von Never <friedrich@fornever.me>
+SPDX-FileCopyrightText: 2021-2026 Friedrich von Never <friedrich@fornever.me>
 
 SPDX-License-Identifier: MIT
 -->
 
 <Project>
     <PropertyGroup Label="Versioning">
-        <Version>3.0.3</Version>
+        <Version>3.0.4</Version>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -18,7 +18,7 @@ SPDX-License-Identifier: MIT
         <Authors>ForNeVeR</Authors>
         <PackageLicenseExpression>MIT AND BSD-2-Clause <!-- Markdig --></PackageLicenseExpression>
         <Copyright>
-            2021-2025 ChangelogAutomation contributors;
+            2021-2026 ChangelogAutomation contributors;
             Alexandre Mutel <!-- Markdig -->
         </Copyright>
         <PackageProjectUrl>https://github.com/ForNeVeR/ChangelogAutomation</PackageProjectUrl>
