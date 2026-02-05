@@ -11,7 +11,7 @@
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
     <File Path="CHANGELOG.md" />
-    <File Path="ChangelogAutomation.sln.license" />
+    <File Path="ChangelogAutomation.slnx.license" />
     <File Path="CONTRIBUTING.md" />
     <File Path="Directory.Build.props" />
     <File Path="LICENSE.md" />
