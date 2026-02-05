@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2021-2025 Friedrich von Never <friedrich@fornever.me>
+SPDX-FileCopyrightText: 2021-2026 Friedrich von Never <friedrich@fornever.me>
 
 SPDX-License-Identifier: MIT
 -->
@@ -69,41 +69,6 @@ There are MSBuild properties to tune its behavior:
 - `DisableChangelogAutomationTask`: set this to `true` to disable the automatic task invocation (if you want to register it with the custom parameters).
 - `ChangelogFilePath`: point it to the `CHANGELOG.md` file. By default, will be set to `../CHANGELOG.md` (resolved relatively to the project file location).
 - `ReleaseNotesOutputType`: either `Markdown` or `PlainText`. If not set, defaults to `PlainText`.
-
-Development
------------
-
-ChangelogAutomation is a .NET 9 application, so it requires [.NET 9 SDK][dotnet-sdk] (or a later version) for build.
-
-To build the application, run the following command:
-
-```console
-$ dotnet build --configuration Release
-```
-
-To run the unit test suite, run the following command:
-
-```console
-$ dotnet test --configuration Release
-```
-
-To run the integration test for the MSBuild task package, run the following command:
-
-```console
-$ pwsh ./ChangelogAutomation.MSBuild.Tests/Run-Test.ps1
-```
-
-To verify the NuGet package produced for ChangelogAutomation.MSBuild, run the following command:
-
-```console
-$ pwsh ./ChangelogAutomation.MSBuild.Tests/Run-PackageValidation.ps1
-```
-
-To run the developer version, execute the following command (usual application arguments follow after `--`):
-
-```console
-$ dotnet run --project ChangelogAutomation -- …
-```
 
 Documentation
 -------------

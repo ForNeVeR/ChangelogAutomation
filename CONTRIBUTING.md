@@ -1,11 +1,45 @@
 <!--
-SPDX-FileCopyrightText: 2024-2025 Friedrich von Never <friedrich@fornever.me>
+SPDX-FileCopyrightText: 2024-2026 Friedrich von Never <friedrich@fornever.me>
 
 SPDX-License-Identifier: MIT
 -->
 
 Contributor Guide
 =================
+
+Development
+-----------
+ChangelogAutomation is a .NET 9 application, so it requires [.NET 9 SDK][dotnet-sdk] (or a later version) for build.
+
+To build the application, run the following command:
+
+```console
+$ dotnet build --configuration Release
+```
+
+To run the unit test suite, run the following command:
+
+```console
+$ dotnet test --configuration Release
+```
+
+To run the integration test for the MSBuild task package, run the following command:
+
+```console
+$ pwsh ./ChangelogAutomation.MSBuild.Tests/Run-Test.ps1
+```
+
+To verify the NuGet package produced for ChangelogAutomation.MSBuild, run the following command:
+
+```console
+$ pwsh ./ChangelogAutomation.MSBuild.Tests/Run-PackageValidation.ps1
+```
+
+To run the developer version, execute the following command (usual application arguments follow after `--`):
+
+```console
+$ dotnet run --project ChangelogAutomation -- …
+```
 
 File Encoding Changes
 ---------------------
