@@ -1,0 +1,34 @@
+<Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/main.yml" />
+    <File Path=".github/workflows/release.yml" />
+  </Folder>
+  <Folder Name="/scripts/">
+    <File Path="scripts/Get-Version.ps1" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="CHANGELOG.md" />
+    <File Path="ChangelogAutomation.sln.license" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="LICENSE.md" />
+    <File Path="MAINTAINERSHIP.md" />
+    <File Path="NuGet.config" />
+    <File Path="README.md" />
+    <File Path="renovate.json" />
+    <File Path="renovate.json.license" />
+    <File Path="REUSE.toml" />
+    <File Path="SetPackageReleaseNotesExternal.tasks" />
+  </Folder>
+  <Project Path="ChangelogAutomation.Changelog/ChangelogAutomation.Changelog.csproj" />
+  <Project Path="ChangelogAutomation.Core.Tests/ChangelogAutomation.Core.Tests.csproj" />
+  <Project Path="ChangelogAutomation.Core/ChangelogAutomation.Core.csproj" />
+  <Project Path="ChangelogAutomation.MSBuild.Tests/ChangelogAutomation.MSBuild.Tests.proj" Type="00000000-0000-0000-0000-000000000000" />
+  <Project Path="ChangelogAutomation.MSBuild/ChangelogAutomation.MSBuild.csproj" />
+  <Project Path="ChangelogAutomation.Tests/ChangelogAutomation.Tests.csproj" />
+  <Project Path="ChangelogAutomation.Tool/ChangelogAutomation.Tool.csproj" />
+  <Project Path="ChangelogAutomation/ChangelogAutomation.csproj" />
+</Solution>
