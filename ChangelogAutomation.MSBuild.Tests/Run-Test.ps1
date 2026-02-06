@@ -27,8 +27,10 @@ Set-StrictMode -Version Latest
 
 $msBuildTaskProject = "$SolutionRootPath/ChangelogAutomation.MSBuild/ChangelogAutomation.MSBuild.csproj"
 
-Write-Output "Cleaning directory $TemporaryDataPath"
-Remove-Item $TemporaryDataPath -Recurse -ErrorAction SilentlyContinue
+if (Test-Path $TemporaryDataPath) {
+    Write-Output "Cleaning directory $TemporaryDataPath"
+    Remove-Item $TemporaryDataPath -Recurse -Force
+}
 
 function Get-TestPackageVersion {
     $directoryBuildPropsFile = "$SolutionRootPath/Directory.Build.props"
@@ -94,6 +96,12 @@ try {
             & $DevEnv $testProjectCsprojPath /Build
             if (!$?) { throw "devenv pack returned $LASTEXITCODE." }
         }
+
+        Write-Output "Building $testProjectName"
+        & $dotnet build `
+            --configuration Release `
+            $testProjectCsprojPath
+        if (!$?) { throw "dotnet build returned $LASTEXITCODE." }
 
         Write-Output "Packing $testProjectName"
         & $dotnet pack `
