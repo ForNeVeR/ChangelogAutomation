@@ -71,4 +71,4 @@ jobs:
         run: ./ChangelogAutomation.MSBuild.Tests/Run-PackageValidation.ps1
       - name: MSBuild task integration test
         shell: pwsh
-        run: ./ChangelogAutomation.MSBuild.Tests/Run-Test.ps1
+        run: ./ChangelogAutomation.MSBuild.Tests/Run-Test.ps1 ${{ runner.os == 'Windows' && '-WithVisualStudioIntegration' || '' }}
