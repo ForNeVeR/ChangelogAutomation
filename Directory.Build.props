@@ -6,7 +6,7 @@ SPDX-License-Identifier: MIT
 
 <Project>
     <PropertyGroup Label="Versioning">
-        <Version>3.0.4</Version>
+        <Version>3.0.5</Version>
     </PropertyGroup>
 
     <PropertyGroup>
