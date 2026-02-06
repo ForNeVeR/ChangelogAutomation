@@ -16,10 +16,10 @@ param (
     $TestProgramFile = "$PSScriptRoot/Program.cs",
     $dotnet = 'dotnet',
 
-    $VisualStudioLocation = 'C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE',
+    $VisualStudioLocation = 'C:\Program Files\Microsoft Visual Studio\2022\Professional',
     [switch] $WithVisualStudioIntegration,
 
-    $DevEnv = "$VisualStudioLocation/devenv.com"
+    $DevEnv = "$VisualStudioLocation/Common7/IDE/devenv.com"
 )
 
 $ErrorActionPreference = 'Stop'
