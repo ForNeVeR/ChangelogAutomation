@@ -95,9 +95,12 @@ try {
             Write-Output 'Shutting down the dotnet build-server.'
             & $dotnet build-server shutdown
 
+            Write-Output 'Shutting down the VCCSCompiler.'
+            Get-Process VBCSCompiler -ErrorAction Ignore | Stop-Process
+
             Write-Output "Using `"$DevEnv`" to build project `"$testProjectCsprojPath`"."
             & $DevEnv $testProjectCsprojPath /Build
-            if (!$?) { throw "devenv pack returned $LASTEXITCODE." }
+            if (!$?) { throw "devenv build returned $LASTEXITCODE." }
         }
 
         Write-Output "Building $testProjectName"
