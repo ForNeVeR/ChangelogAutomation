@@ -92,6 +92,9 @@ try {
 '@ | Out-File $testProjectChangelogPath -Encoding utf8
 
         if ($WithVisualStudioIntegration) {
+            Write-Output 'Shutting down the dotnet build-server.'
+            & $dotnet build-server shutdown
+
             Write-Output "Using `"$DevEnv`" to build project `"$testProjectCsprojPath`"."
             & $DevEnv $testProjectCsprojPath /Build
             if (!$?) { throw "devenv pack returned $LASTEXITCODE." }
