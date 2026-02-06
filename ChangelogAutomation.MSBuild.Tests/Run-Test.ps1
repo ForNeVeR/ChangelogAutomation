@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2021-2025 Friedrich von Never <friedrich@fornever.me>
+# SPDX-FileCopyrightText: 2021-2026 Friedrich von Never <friedrich@fornever.me>
 #
 # SPDX-License-Identifier: MIT
 
@@ -8,9 +8,18 @@ param (
     $PackageSourcePath = "$TemporaryDataPath/nuget",
     $NuGetCachePath = "$TemporaryDataPath/nuget.cache",
     $ExtractedNugetPath = "$TemporaryDataPath/nuget.exploded",
-    $TestProjectFiles = @("$PSScriptRoot/SingleFrameworkTest.csproj", "$PSScriptRoot/MultiFrameworkTest.csproj"),
+    $TestProjectFiles = @(
+        "$PSScriptRoot/GeneratePackageOnBuild.csproj",
+        "$PSScriptRoot/MultiFrameworkTest.csproj",
+        "$PSScriptRoot/SingleFrameworkTest.csproj"
+    ),
     $TestProgramFile = "$PSScriptRoot/Program.cs",
-    $dotnet = 'dotnet'
+    $dotnet = 'dotnet',
+
+    $VisualStudioLocation = 'C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE',
+    [switch] $WithVisualStudioIntegration,
+
+    $DevEnv = "$VisualStudioLocation/devenv.com"
 )
 
 $ErrorActionPreference = 'Stop'
@@ -79,6 +88,12 @@ try {
 [unrelated]: https://example.com/unrelated
 [link]: https://example.com/
 '@ | Out-File $testProjectChangelogPath -Encoding utf8
+
+        if ($WithVisualStudioIntegration) {
+            Write-Output "Using `"$DevEnv`" to build project `"$testProjectCsprojPath`"."
+            & $DevEnv $testProjectCsprojPath /Build
+            if (!$?) { throw "devenv pack returned $LASTEXITCODE." }
+        }
 
         Write-Output "Packing $testProjectName"
         & $dotnet pack `

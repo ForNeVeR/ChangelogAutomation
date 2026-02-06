@@ -26,8 +26,11 @@ $ dotnet test --configuration Release
 To run the integration test for the MSBuild task package, run the following command:
 
 ```console
-$ pwsh ./ChangelogAutomation.MSBuild.Tests/Run-Test.ps1
+$ dotnet pack # this is a test prerequisite
+$ pwsh ./ChangelogAutomation.MSBuild.Tests/Run-Test.ps1 [-WithVisualStudioIntegration]
 ```
+
+Pass the switch `-WithVisualStudioIntegration` if required.
 
 To verify the NuGet package produced for ChangelogAutomation.MSBuild, run the following command:
 

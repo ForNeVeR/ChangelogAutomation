@@ -12,6 +12,7 @@ SPDX-License-Identifier: MIT
     </PropertyGroup>
     <ItemGroup>
         <Content Include="Extract-ReleaseNotes.ps1" />
+        <Content Include="GeneratePackageOnBuild.csproj" />
         <Content Include="MultiFrameworkTest.csproj" />
         <Content Include="Run-PackageValidation.ps1" />
         <Content Include="Run-Test.ps1" />
