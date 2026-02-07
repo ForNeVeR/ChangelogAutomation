@@ -19,7 +19,7 @@ param (
     $VisualStudioLocation = 'C:\Program Files\Microsoft Visual Studio\2022\Professional',
     [switch] $WithVisualStudioIntegration,
 
-    $DevEnv = "$VisualStudioLocation/Common7/IDE/devenv.com"
+    $msBuild = "$VisualStudioLocation/Msbuild/Current/Bin/amd64/MSBuild.exe"
 )
 
 $ErrorActionPreference = 'Stop'
@@ -95,12 +95,12 @@ try {
             Write-Output 'Shutting down the dotnet build-server.'
             & $dotnet build-server shutdown
 
-            Write-Output 'Shutting down the VCCSCompiler.'
+            Write-Output 'Shutting down the VBCSCompiler.'
             Get-Process VBCSCompiler -ErrorAction Ignore | Stop-Process
 
-            Write-Output "Using `"$DevEnv`" to build project `"$testProjectCsprojPath`"."
-            & $DevEnv $testProjectCsprojPath /Build
-            if (!$?) { throw "devenv build returned $LASTEXITCODE." }
+            Write-Output "Using `"$msBuild`" to build project `"$testProjectCsprojPath`"."
+            & $msBuild $testProjectCsprojPath
+            if (!$?) { throw "MSBuild returned $LASTEXITCODE." }
         }
 
         Write-Output "Building $testProjectName"
